@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193350636818",
+    "project_id": "calificaciones-7237f",
+    "storage_bucket": "calificaciones-7237f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193350636818:android:b446992832008203f1cfcb",
+        "android_client_info": {
+          "package_name": "mx.edu.unpa.calificaciones"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp5olBjvy25fgzV49OQe1eiVpP7XpbuYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
