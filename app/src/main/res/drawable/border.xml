@@ -8,6 +8,6 @@
         android:width="1dp"
         android:color="#003366"/> <!-- Color del borde -->
 
-    <corners android:radius="0dp"/> <!-- Opcional: esquinas redondeadas -->
+    <corners android:radius="0dp"/> <!-- Opcional: esquinas redondeadas-->
 
 </shape>

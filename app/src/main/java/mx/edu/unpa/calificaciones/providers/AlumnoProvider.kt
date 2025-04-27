@@ -2,13 +2,25 @@ package mx.edu.unpa.calificaciones.providers
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
+import com.google.firebase.auth.oAuthProvider
+import com.google.firebase.firestore.Query
+
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 
 import mx.edu.unpa.calificaciones.models.Alumno
 
 class AlumnoProvider {
-    var db= Firebase.firestore.collection("Alumno")
+    var db=Firebase.firestore.collection("Alumno")
+    var authProvider= AuthProvider()
+
+    fun create (alumno: Alumno): Task<Void>{
+        return db.document(alumno.alumnoId!!).set(alumno)
+    }
+    fun getStudent(): Query {
+        return db.whereEqualTo("alumnoId",authProvider.getId())
+    }
+    /*var db= Firebase.firestore.collection("Alumno")
 
     fun create(alumno: Alumno): Task<Void> {
         return db.document(alumno.alumnoId!!).set(alumno)
@@ -29,5 +41,7 @@ class AlumnoProvider {
                 println("Tas bien tostao")
                 callback(null)
             }
-    }
+    }*/
+
+
 }
