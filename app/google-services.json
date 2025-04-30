@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "193350636818",
-    "project_id": "calificaciones-7237f",
-    "storage_bucket": "calificaciones-7237f.firebasestorage.app"
+    "project_number": "21005065672",
+    "project_id": "studentapp-d9a8b",
+    "storage_bucket": "studentapp-d9a8b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:193350636818:android:b446992832008203f1cfcb",
+        "mobilesdk_app_id": "1:21005065672:android:ec6a6da0acfcb674ad34fd",
         "android_client_info": {
           "package_name": "mx.edu.unpa.calificaciones"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDp5olBjvy25fgzV49OQe1eiVpP7XpbuYo"
+          "current_key": "AIzaSyB8aln6DNG_3mktYQ2mvhppwhLDkfyMt8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21005065672:android:11f865ff12a5d038ad34fd",
+        "android_client_info": {
+          "package_name": "mx.edu.unpa.studentapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8aln6DNG_3mktYQ2mvhppwhLDkfyMt8U"
         }
       ],
       "services": {
