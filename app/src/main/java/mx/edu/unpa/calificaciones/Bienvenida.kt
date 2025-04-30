@@ -36,6 +36,7 @@ class Bienvenida : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         getStudent()
+
     }
 
     private fun getStudent(){
@@ -49,6 +50,8 @@ class Bienvenida : AppCompatActivity() {
                 //Usar `Alumno`
                 name.setText(student?.name)
                 Log.d("Firestore", "Estudiante: $student")
+                val intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
             }else{
                 Toast.makeText(this@Bienvenida,"Cosulta fallida ${it.exception.toString()}",Toast.LENGTH_LONG).show()
                 Log.d("FIREBASE", "Error: ${it.exception.toString()}");

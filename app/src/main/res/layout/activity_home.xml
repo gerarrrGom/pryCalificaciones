@@ -482,7 +482,7 @@
                     <TextView
                         android:id="@+id/txtParAsig4"
                         android:layout_width="38dp"
-                        android:layout_height="40"
+                        android:layout_height="40dp"
                         android:background="@drawable/border"
                         android:text=""
                         android:textAlignment="center" />
