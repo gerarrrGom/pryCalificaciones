@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(authProvider.exitsSession()){
-            val intent=Intent(this,Bienvenida::class.java)
+            val intent=Intent(this,HomeActivity::class.java)
             startActivity(intent)
     }
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         if (isValidForm(email.text.toString(),pass.text.toString())){
             authProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
                 if (it.isSuccessful){
-                    val intent= Intent(this, Bienvenida::class.java)
+                    val intent= Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 }
                 else{

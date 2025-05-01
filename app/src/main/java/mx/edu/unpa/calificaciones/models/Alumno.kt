@@ -5,13 +5,12 @@ private val klaxon= Klaxon()
 
 data class Alumno (
     val alumnoId: String?= null,
-    val name: String? = null,
-    val lastName: String? = null,
-    val middleName: String? = null,
-    val email: String? = null,
-    val phone: String? = null,
-    val address: String? = null,
-    val active: String? = null
+    val nombre: String? = null,
+    val apellidoPaterno: String? = null,
+    val apellidoMaterno: String? = null,
+    val materia: List<Materia>?=null,
+    val matricula:String?=null,
+    val activo: Boolean? = null
 ){
     public fun toJson()= klaxon.toJsonString(this)
 

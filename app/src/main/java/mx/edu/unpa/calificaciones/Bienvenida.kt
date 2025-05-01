@@ -47,8 +47,7 @@ class Bienvenida : AppCompatActivity() {
                 val document= it.result.documents
                 val student= document[0].toObject(Alumno::class.java)
 
-                //Usar `Alumno`
-                name.setText(student?.name)
+
                 Log.d("Firestore", "Estudiante: $student")
                 val intent = Intent(this,HomeActivity::class.java)
                 startActivity(intent)

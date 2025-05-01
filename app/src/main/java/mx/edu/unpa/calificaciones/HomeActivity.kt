@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import mx.edu.unpa.calificaciones.models.Alumno
+import mx.edu.unpa.calificaciones.models.Calificacion
+import mx.edu.unpa.calificaciones.models.Carrera
+import mx.edu.unpa.calificaciones.models.Materia
+import mx.edu.unpa.calificaciones.models.PlanDeEstudios
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 
 class HomeActivity : AppCompatActivity() {
@@ -61,7 +65,9 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var txtPFAsig5: TextView
 
     private lateinit var alumnoProvider: AlumnoProvider
-
+    private lateinit var alumno: Alumno
+    //private lateinit var calificacion: Calificacion
+    //private lateinit var carrera: Carrera
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -126,62 +132,50 @@ class HomeActivity : AppCompatActivity() {
         alumnoProvider = AlumnoProvider()
 
         // Obtener datos del alumno
-        getStudent()
+        //getStudent()
+        alumnoProvider.obtenerAlumnoPorId("9bCGKjq1b6Vhs08oU7jf", object : AlumnoProvider.AlumnoCallback {
+            override fun onSuccess(alumno: Alumno) {
+                println("Alumno obtenido: ${alumno.toJson()}")
+                this@HomeActivity.alumno = alumno
+                llenarDatos();
+            }
+            override fun onFailure(exception: Exception) {
+                println("Error al obtener alumno: ${exception.message}")
+            }
+        })
     }
 
-    private fun llenarDatos(alumno: Alumno) {
+
+    private fun llenarDatos() {
         // Datos generales
-        txtAlumno.text     = alumno.name
-        txtMatricula.text  = alumno.active // o "21010019" si quieres hardcodear
-        txtCarrera.text    = "Ingeniería en Computación"
-        txtGrado.text      = "4° Semestre"
+        txtAlumno.text     = alumno.nombre
+        txtMatricula.text  = alumno.matricula
+        //txtCarrera.text    = carrera.descripcion
+       // txtGrado.text      = materia.semestre
         txtPromGeneral.text= "8.7"
-        txtCicloEsc.text   = "2025-1"
+        //txtCicloEsc.text   = planDeEstudios.descripcion
 
-        // Asignatura 1
-        txtAsignatura1.text= "Programación I"
-        txtParAsig1.text   = "9"
-        txtPar2Asig1.text  = "8"
-        txtPar3Asig1.text  = "9"
-        txtPPAsig1.text    = "8.5"
-        txtOAsig1.text     = "9"
-        txtPFAsig1.text    = "8.8"
+        val materias = alumno.materia ?: emptyList()
 
-        // Asignatura 2
-        txtAsignatura2.text= "Estructuras de Datos"
-        txtParAsig2.text   = "8"
-        txtPar2Asig2.text  = "7"
-        txtPar3Asig2.text  = "8"
-        txtPPAsig2.text    = "7.5"
-        txtOAsig2.text     = "8"
-        txtPFAsig2.text    = "7.9"
+        // Función auxiliar para llenar una fila
+        fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
+            val materia = materias.getOrNull(index)
+            nombre.text = materia?.nombre ?: ""
+            par1.text = materia?.calificacion?.parcial1 ?: ""
+            par2.text = materia?.calificacion?.parcial2 ?: ""
+            par3.text = materia?.calificacion?.parcial3 ?: ""
+            pp.text = materia?.calificacion?.promedio ?: ""
+            o.text = materia?.calificacion?.final ?: ""
+            pf.text = materia?.calificacion?.definitivo ?: ""
+        }
 
-        // Asignatura 3
-        txtAsignatura3.text= "Matemáticas Discretas"
-        txtParAsig3.text   = "9"
-        txtPar2Asig3.text  = "9"
-        txtPar3Asig3.text  = "10"
-        txtPPAsig3.text    = "9.5"
-        txtOAsig3.text     = "9"
-        txtPFAsig3.text    = "9.3"
+// Llenar datos de cada asignatura
+        cargarAsignatura(0, txtAsignatura1, txtParAsig1, txtPar2Asig1, txtPar3Asig1, txtPPAsig1, txtOAsig1, txtPFAsig1)
+        cargarAsignatura(1, txtAsignatura2, txtParAsig2, txtPar2Asig2, txtPar3Asig2, txtPPAsig2, txtOAsig2, txtPFAsig2)
+        cargarAsignatura(2, txtAsignatura3, txtParAsig3, txtPar2Asig3, txtPar3Asig3, txtPPAsig3, txtOAsig3, txtPFAsig3)
+        cargarAsignatura(3, txtAsignatura4, txtParAsig4, txtPar2Asig4, txtPar3Asig4, txtPPAsig4, txtOAsig4, txtPFAsig4)
+        cargarAsignatura(4, txtAsignatura5, txtParAsig5, txtPar2Asig5, txtPar3Asig5, txtPPAsig5, txtOAsig5, txtPFAsig5)
 
-        // Asignatura 4
-        txtAsignatura4.text= "Sistemas Digitales"
-        txtParAsig4.text   = "8"
-        txtPar2Asig4.text  = "8"
-        txtPar3Asig4.text  = "7"
-        txtPPAsig4.text    = "7.5"
-        txtOAsig4.text     = "8"
-        txtPFAsig4.text    = "7.8"
-
-        // Asignatura 5
-        txtAsignatura5.text= "Bases de Datos"
-        txtParAsig5.text   = "9"
-        txtPar2Asig5.text  = "8"
-        txtPar3Asig5.text  = "9"
-        txtPPAsig5.text    = "8.7"
-        txtOAsig5.text     = "9"
-        txtPFAsig5.text    = "8.9"
     }
 
     private fun getStudent() {
@@ -194,7 +188,7 @@ class HomeActivity : AppCompatActivity() {
                     if (documents.isNotEmpty()) {
                         val student = documents[0].toObject(Alumno::class.java)
                         Log.d("Firestore", "Estudiante: $student")
-                        student?.let { llenarDatos(it) }
+                        student?.let { llenarDatos() }
                     }
                 } else {
                     Toast.makeText(this, "Consulta fallida: ${task.exception}", Toast.LENGTH_LONG).show()

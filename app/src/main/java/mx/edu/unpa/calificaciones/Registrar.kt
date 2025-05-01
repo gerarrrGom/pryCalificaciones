@@ -57,13 +57,12 @@ class Registrar : AppCompatActivity() {
                 Toast.makeText(this@Registrar,"Registro exitoso",Toast.LENGTH_LONG).show()
                 val alumno=Alumno(
                     alumnoId=authProvider.getId(),
-                    name="Amaranny",
-                    lastName="Olea",
-                    middleName="Herrera",
-                    email=email.text.toString(),
-                    phone="2811027172",
-                    address="Oaxaca",
-                    active="activo"
+                    nombre="Amaranny",
+                    apellidoPaterno="Olea",
+                    apellidoMaterno="Herrera",
+                    matricula = "21010019",
+
+
                 )
                 AlumnoProvider.create(alumno).addOnCompleteListener{
                     if(it.isSuccessful){

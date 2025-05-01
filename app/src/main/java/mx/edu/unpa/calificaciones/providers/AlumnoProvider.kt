@@ -3,12 +3,15 @@ package mx.edu.unpa.calificaciones.providers
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.auth.oAuthProvider
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.Query
 
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 
 import mx.edu.unpa.calificaciones.models.Alumno
+import mx.edu.unpa.calificaciones.models.Calificacion
+import mx.edu.unpa.calificaciones.models.Materia
 
 class AlumnoProvider {
     var db=Firebase.firestore.collection("Alumno")
@@ -18,30 +21,152 @@ class AlumnoProvider {
         return db.document(alumno.alumnoId!!).set(alumno)
     }
     fun getStudent(): Query {
-        return db.whereEqualTo("alumnoId",authProvider.getId())
+        return db.whereEqualTo("matricula",authProvider.getId())
     }
     /*var db= Firebase.firestore.collection("Alumno")
 
     fun create(alumno: Alumno): Task<Void> {
         return db.document(alumno.alumnoId!!).set(alumno)
     }
+*/
+    interface AlumnoCallback {
+        fun onSuccess(alumno: Alumno)
+        fun onFailure(exception: Exception)
+    }
 
-    fun getAlumnoById(alumnoId: String, callback: (Alumno?) -> Unit) {
-        db.whereEqualTo("alumnoId",alumnoId)
-            .get()
-            .addOnCompleteListener{ doc ->
-                if(doc.result.isEmpty){
-                    callback(null)
-                }else{
-                    val alumno = doc.result.first().toObject<Alumno>()
-                    callback(alumno)
+fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
+    val alumnoDoc = db.document(alumnoId)
+
+    alumnoDoc.get().addOnSuccessListener { snapshot ->
+        if (snapshot != null && snapshot.exists()) {
+            val nombre = snapshot.getString("nombre")
+            val apellidoPaterno = snapshot.getString("apellidoPaterno")
+            val apellidoMaterno = snapshot.getString("apellidoMaterno")
+            val matricula = snapshot.getString("matricula")
+            val activo = snapshot.getBoolean("activo")
+            val materiasRefList = snapshot.get("materia") as? List<DocumentReference>
+
+            if (materiasRefList.isNullOrEmpty()) {
+                val alumno = Alumno(
+                    alumnoId = alumnoId,
+                    nombre = nombre,
+                    apellidoPaterno = apellidoPaterno,
+                    apellidoMaterno = apellidoMaterno,
+                    matricula = matricula,
+                    activo = activo,
+                    materia = emptyList()
+                )
+                callback.onSuccess(alumno)
+                return@addOnSuccessListener
+            }
+
+            val materias = mutableListOf<Materia>()
+            var pendientes = materiasRefList.size
+            var errorOcurrido = false
+
+            for (materiaRef in materiasRefList) {
+                materiaRef.get().addOnSuccessListener { materiaSnapshot ->
+                    if (materiaSnapshot != null && materiaSnapshot.exists()) {
+                        val nombreMateria = materiaSnapshot.getString("nombre")
+                        val ciclo = materiaSnapshot.getString("cicloEscolar")
+                        val semestre = materiaSnapshot.getString("semestre")
+                        val activoMateria = materiaSnapshot.getBoolean("activo")
+
+                        val califRef = materiaSnapshot.getDocumentReference("calificacion")
+                        if (califRef!=null) {
+                            califRef.get().addOnSuccessListener { califSnap ->
+                                val calificacion = Calificacion(
+                                    definitivo = califSnap.getString("definitivo"),
+                                    especial = califSnap.getString("especial"),
+                                    extra1 = califSnap.getString("extra1"),
+                                    extra2 = califSnap.getString("extra2"),
+                                    final = califSnap.getString("final"),
+                                    parcial1 = califSnap.getString("parcial1"),
+                                    parcial2 = califSnap.getString("parcial2"),
+                                    parcial3 = califSnap.getString("parcial3"),
+                                    promedio = califSnap.getString("promedio"),
+                                    tipo = califSnap.getLong("tipo")?.toInt()
+                                )
+                                materias.add(
+                                    Materia(
+                                        nombre = nombreMateria,
+                                        cicloEscolar = ciclo,
+                                        semestre = semestre,
+                                        activo = activoMateria,
+                                        calificacion = calificacion
+                                    )
+                                )
+                                pendientes--
+                                if (pendientes == 0 && !errorOcurrido) {
+                                    val alumno = Alumno(
+                                        alumnoId = alumnoId,
+                                        nombre = nombre,
+                                        apellidoPaterno = apellidoPaterno,
+                                        apellidoMaterno = apellidoMaterno,
+                                        matricula = matricula,
+                                        activo = activo,
+                                        materia = materias
+                                    )
+                                    callback.onSuccess(alumno)
+                                }
+                            }.addOnFailureListener {
+                                if (!errorOcurrido) {
+                                    errorOcurrido = true
+                                    callback.onFailure(it)
+                                }
+                            }
+                        } else {
+                            materias.add(
+                                Materia(
+                                    nombre = nombreMateria,
+                                    cicloEscolar = ciclo,
+                                    semestre = semestre,
+                                    activo = activoMateria,
+                                    calificacion = null
+                                )
+                            )
+                            pendientes--
+                            if (pendientes == 0 && !errorOcurrido) {
+                                val alumno = Alumno(
+                                    alumnoId = alumnoId,
+                                    nombre = nombre,
+                                    apellidoPaterno = apellidoPaterno,
+                                    apellidoMaterno = apellidoMaterno,
+                                    matricula = matricula,
+                                    activo = activo,
+                                    materia = materias
+                                )
+                                callback.onSuccess(alumno)
+                            }
+                        }
+                    } else {
+                        pendientes--
+                        if (pendientes == 0 && !errorOcurrido) {
+                            val alumno = Alumno(
+                                alumnoId = alumnoId,
+                                nombre = nombre,
+                                apellidoPaterno = apellidoPaterno,
+                                apellidoMaterno = apellidoMaterno,
+                                matricula = matricula,
+                                activo = activo,
+                                materia = materias
+                            )
+                            callback.onSuccess(alumno)
+                        }
+                    }
+                }.addOnFailureListener {
+                    if (!errorOcurrido) {
+                        errorOcurrido = true
+                        callback.onFailure(it)
+                    }
                 }
             }
-            .addOnFailureListener{ ex ->
-                println("Tas bien tostao")
-                callback(null)
-            }
-    }*/
 
-
+        } else {
+            callback.onFailure(Exception("Documento de alumno no encontrado"))
+        }
+    }.addOnFailureListener {
+        callback.onFailure(it)
+    }
+}
 }
