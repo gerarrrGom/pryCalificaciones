@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Calificaciones" parent="Base.Theme.Calificaciones" />
+
+    <!-- Estilo de botones -->
+    <style name="CustomButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="background">@drawable/rounded_main_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>

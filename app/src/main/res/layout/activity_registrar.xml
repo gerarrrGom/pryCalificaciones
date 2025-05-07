@@ -2,141 +2,193 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/layoutRegistrar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECF6E5"
+    android:background="#FFFFFF"
     tools:context=".RegistrarActivity">
-
-    <EditText
-        android:id="@+id/txtcuadroNombreR"
-        android:layout_width="247dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="153dp"
-        android:drawableStart="@drawable/ic_register_email"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/txtcuadroNombreR"
-        app:layout_constraintBottom_toBottomOf="@+id/txtCuadroR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/txtCuadroR"
-        android:layout_width="253dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="98dp"
-        android:drawableStart="@drawable/ic_main_lock"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="@string/txtCuadroR"
-        app:layout_constraintBottom_toBottomOf="@+id/txtConfirContra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/txtCuadroConfirmar"
-        android:layout_width="263dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="44dp"
-        android:drawableStart="@drawable/ic_main_lock"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="@string/txtCuadroConfirmar"
-        app:layout_constraintBottom_toTopOf="@+id/btnCrear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtConfirContra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="71dp"
-        android:text="@string/txtConfirContra"
-        android:textColor="#441250"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="@+id/txtCuadroConfirmar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtnombreR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="77dp"
-        android:text="@string/txtnombreR"
-        android:textColor="#441250"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadroNombreR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtRegistrar" />
-
-    <TextView
-        android:id="@+id/txtContraR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="73dp"
-        android:text="@string/txtContraR"
-        android:textColor="#441250"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="@+id/txtCuadroR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtcuadroNombreR" />
-
-    <Button
-        android:id="@+id/btnCrear"
-        android:layout_width="125dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#59C1EF"
-        android:onClick="registrarUsuario"
-        android:text="@string/btnCrear"
-        android:textSize="16dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="@string/txtRegistrar"
-        android:textColor="#3244A8"
-        android:textSize="40dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/txtcuadroNombreR"
+        android:textColor="#1E88E5"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutMatricula"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRegistrar">
 
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="121dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#59C1EF"
-        android:onClick="Home"
-        android:text="@string/btnCancelar"
-        android:textSize="16dp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCrear"
-        app:layout_constraintHorizontal_bias="0.572"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarMatricula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_register_email"
+            android:hint="@string/txtHintMatricula"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCuadroConfirmar" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutMatricula">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_register_email"
+            android:hint="@string/txtHintNombre"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutApellidoPaterno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutNombre">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarApellidoPat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_register_email"
+            android:hint="@string/txtHintApellidoPat"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutApellidoMaterno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutApellidoPaterno">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarApellidoMat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:drawableStart="@drawable/ic_register_email"
+            android:hint="@string/txtHintApellidoMat"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegistrarApellidoMat"
+            tools:layout_editor_absoluteX="-51dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutApellidoMaterno">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:drawableStart="@drawable/ic_register_email"
+            android:hint="@string/txtHintEmail"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/txtRegistrarEmail"
+            tools:layout_editor_absoluteX="-51dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutContraseña"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRegistrarContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="508dp"
+            android:drawableStart="@drawable/ic_main_lock"
+            android:hint="@string/txtHintContraseña"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutContraseña">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_main_button"
+            android:backgroundTint="@null"
+            android:onClick="Home"
+            android:text="@string/btnCancelar"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCrear"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_main_button"
+            android:backgroundTint="@null"
+            android:onClick="registrarUsuario"
+            android:text="@string/btnCrear"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

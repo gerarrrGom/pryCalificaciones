@@ -32,14 +32,14 @@ class RegistrarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_registrar)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layoutRegistrar)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        email=findViewById(R.id.txtcuadroNombreR)
-        password=findViewById(R.id.txtCuadroR)
+        email=findViewById(R.id.txtRegistrarEmail)
+        password=findViewById(R.id.txtRegistrarContraseña)
         // Log.d("FIREBASE", "Email: $(email.text.toString()}");
         // Log.d("FIREBASE", "Pass: $(password.text.toString()}");
     }
