@@ -1,11 +1,16 @@
 <resources>
+    <!-- activity_main -->
     <string name="app_name">Calificaciones</string>
     <string name="txtTitulo">StudentApp</string>
+    <string name="testUser">test01@gmail.com</string>
+    <string name="testPass">123456789</string>
     <string name="name">Usuario</string>
     <string name="contra">Hola</string>
     <string name="btnlogin">Iniciar sesión</string>
     <string name="txtOr">ó</string>
     <string name="txtcreate">Crear cuenta</string>
+
+    <!-- activity_registrar -->
     <string name="txtRegistrar">Registrar</string>
     <string name="txtnombreR">Usuario:</string>
     <string name="txtcuadroNombreR">Amaranny</string>
@@ -15,16 +20,19 @@
     <string name="txtCuadroConfirmar">holaaaaaa</string>
     <string name="btnCrear">Crear</string>
     <string name="btnCancelar">Cancelar</string>
+
+    <!-- activity_bienvenida -->
     <string name="txtBienvenida">Bienvenido</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtCerrarSesion">Cerrar Sesión</string>
+
+    <!-- activity_home -->
     <string name="txtUni">Universidad del Papaloapan</string>
     <string name="txtCampus">CAMPUS LOMA BONITA</string>
     <string name="txtClave">CLAVE:20MSU0020Q</string>
     <string name="txtBoleta">Boleta de Calificaciones</string>
     <string name="txtPeriodo">Periodo</string>
-    <string name="txtCerrarSesion">Cerrar Sesión</string>
-    <string name="txtNombre">Nombre</string>
-
-    <string name="testUser">anyany27@gmail.com</string>
-    <string name="testPass">123456789</string>
     <string name="txtSemestre">Semestre</string>
+
+
 </resources>

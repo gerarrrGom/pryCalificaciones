@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECF6E5"
-    tools:context=".Bienvenida">
+    tools:context=".BienvenidaActivity">
 
     <TextView
         android:id="@+id/txtBienvenida"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52"
-        app:srcCompat="@drawable/unpaa3" />
+        app:srcCompat="@drawable/fo_main_unpa" />
 
     <Button
         android:id="@+id/txtCerrarSesion"

@@ -14,6 +14,7 @@ import mx.edu.unpa.calificaciones.models.Carrera
 import mx.edu.unpa.calificaciones.models.Materia
 import mx.edu.unpa.calificaciones.models.PlanDeEstudios
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
+import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 
 class HomeActivity : AppCompatActivity() {
     // Declaración de las vistas
@@ -64,10 +65,13 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var txtOAsig5: TextView
     private lateinit var txtPFAsig5: TextView
 
+    private val usuarioProvider: UsuarioProvider =UsuarioProvider()
     private lateinit var alumnoProvider: AlumnoProvider
     private lateinit var alumno: Alumno
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -159,14 +163,14 @@ class HomeActivity : AppCompatActivity() {
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
-            val materia = materias.getOrNull(index)
+            /*val materia = materias.getOrNull(index)
             nombre.text = materia?.nombre ?: ""
             par1.text = materia?.calificacion?.parcial1 ?: ""
             par2.text = materia?.calificacion?.parcial2 ?: ""
             par3.text = materia?.calificacion?.parcial3 ?: ""
             pp.text = materia?.calificacion?.promedio ?: ""
             o.text = materia?.calificacion?.final ?: ""
-            pf.text = materia?.calificacion?.definitivo ?: ""
+            pf.text = materia?.calificacion?.definitivo ?: ""*/
         }
 
 // Llenar datos de cada asignatura
@@ -179,7 +183,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getStudent() {
-        alumnoProvider.getStudent()
+        alumnoProvider.getStudent(usuarioProvider.getId())
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

@@ -18,10 +18,10 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Bienvenida"
+            android:name=".BienvenidaActivity"
             android:exported="false" />
         <activity
-            android:name=".Registrar"
+            android:name=".RegistrarActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECF6E5"
-    tools:context=".Registrar">
+    tools:context=".RegistrarActivity">
 
     <EditText
         android:id="@+id/txtcuadroNombreR"
         android:layout_width="247dp"
         android:layout_height="48dp"
         android:layout_marginBottom="153dp"
+        android:drawableStart="@drawable/ic_register_email"
         android:ems="10"
         android:inputType="text"
         android:text="@string/txtcuadroNombreR"
@@ -25,6 +26,7 @@
         android:layout_width="253dp"
         android:layout_height="48dp"
         android:layout_marginBottom="98dp"
+        android:drawableStart="@drawable/ic_main_lock"
         android:ems="10"
         android:inputType="textPassword"
         android:text="@string/txtCuadroR"
@@ -37,6 +39,7 @@
         android:layout_width="263dp"
         android:layout_height="49dp"
         android:layout_marginBottom="44dp"
+        android:drawableStart="@drawable/ic_main_lock"
         android:ems="10"
         android:inputType="textPassword"
         android:text="@string/txtCuadroConfirmar"
@@ -97,7 +100,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="60dp"
         android:backgroundTint="#59C1EF"
-        android:onClick="registrar"
+        android:onClick="registrarUsuario"
         android:text="@string/btnCrear"
         android:textSize="16dp"
         android:textStyle="italic"

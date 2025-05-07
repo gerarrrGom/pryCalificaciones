@@ -20,9 +20,10 @@ class AlumnoProvider {
     fun create (alumno: Alumno): Task<Void>{
         return db.document(alumno.alumnoId!!).set(alumno)
     }
-    fun getStudent(): Query {
-        return db.whereEqualTo("matricula",authProvider.getId())
+    fun getStudent(id: String): Query {
+        return db.whereEqualTo("alumnoId", id)
     }
+
     /*var db= Firebase.firestore.collection("Alumno")
 
     fun create(alumno: Alumno): Task<Void> {
@@ -96,6 +97,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         calificacion = calificacion
                                     )
                                 )
+
                                 pendientes--
                                 if (pendientes == 0 && !errorOcurrido) {
                                     val alumno = Alumno(
@@ -105,7 +107,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         apellidoMaterno = apellidoMaterno,
                                         matricula = matricula,
                                         activo = activo,
-                                        materia = materias
+                                        materia = listOf() // materias
                                     )
                                     callback.onSuccess(alumno)
                                 }
@@ -134,7 +136,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                     apellidoMaterno = apellidoMaterno,
                                     matricula = matricula,
                                     activo = activo,
-                                    materia = materias
+                                    materia = listOf() // materias
                                 )
                                 callback.onSuccess(alumno)
                             }
@@ -149,7 +151,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                 apellidoMaterno = apellidoMaterno,
                                 matricula = matricula,
                                 activo = activo,
-                                materia = materias
+                                materia = listOf() // materias
                             )
                             callback.onSuccess(alumno)
                         }

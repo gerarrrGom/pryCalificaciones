@@ -10,19 +10,20 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="133dp"
-        android:layout_height="104dp"
+        android:layout_width="192dp"
+        android:layout_height="130dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/images" />
+        app:srcCompat="@drawable/fo_main_unpa" />
 
     <EditText
         android:id="@+id/contra"
         android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginBottom="52dp"
+        android:drawableStart="@drawable/ic_main_lock"
         android:ems="10"
         android:inputType="textPassword"
         android:text="@string/testPass"
@@ -49,6 +50,7 @@
         android:layout_width="220dp"
         android:layout_height="48dp"
         android:layout_marginBottom="52dp"
+        android:drawableStart="@drawable/ic_main_account"
         android:ems="10"
         android:inputType="text"
         android:text="@string/testUser"
@@ -63,7 +65,7 @@
         android:id="@+id/txtOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/txtOr"
         android:textColor="#2C302C"
         android:textSize="25dp"
@@ -75,16 +77,19 @@
 
     <TextView
         android:id="@+id/txtCreate"
-        android:layout_width="119dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="146dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="72dp"
+        android:gravity="center"
         android:onClick="registrar"
         android:text="@string/txtcreate"
+        android:textAlignment="center"
         android:textColor="#333933"
         android:textSize="20dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -98,7 +103,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />

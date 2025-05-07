@@ -10,12 +10,15 @@ class AuthProvider {
     fun register(email: String, pass: String): Task<AuthResult> {
         return auth.createUserWithEmailAndPassword(email,pass)
     }
+
     fun getId():String{
         return auth.currentUser?.uid?:""
     }
+
     fun login(email: String,pass:String):Task<AuthResult>{
         return auth.signInWithEmailAndPassword(email,pass)
     }
+
     fun exitsSession(): Boolean{
         var exits= false
         if(auth.currentUser !=null){
@@ -23,6 +26,7 @@ class AuthProvider {
         }
         return exits
     }
+
     fun exitSession(){
         auth.signOut()
     }
