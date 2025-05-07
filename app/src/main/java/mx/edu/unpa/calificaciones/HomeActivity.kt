@@ -150,8 +150,8 @@ class HomeActivity : AppCompatActivity() {
         // Datos generales
         txtAlumno.text     = alumno.nombre
         txtMatricula.text  = alumno.matricula
-        //txtCarrera.text    = carrera.descripcion
-       // txtGrado.text      = materia.semestre
+        txtCarrera.text    = "Ingeniería en Computación"//carrera.descripcion
+        txtGrado.text      ="Octavo"// materia.semestre
         txtPromGeneral.text= "8.7"
         //txtCicloEsc.text   = planDeEstudios.descripcion
 

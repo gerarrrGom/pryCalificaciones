@@ -17,7 +17,8 @@
     <string name="btnCancelar">Cancelar</string>
     <string name="txtBienvenida">Bienvenido</string>
     <string name="txtUni">Universidad del Papaloapan</string>
-    <string name="txtCampus">CAMPUS LOMA BONITA</string>
+    <string name="txtCampus">CAMPUS LOMA BONITA CLAVE:20MSU0020Q</string>
+
     <string name="txtClave">CLAVE:20MSU0020Q</string>
     <string name="txtBoleta">Boleta de Calificaciones</string>
     <string name="txtPeriodo">Periodo</string>
