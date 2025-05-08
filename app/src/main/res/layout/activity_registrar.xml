@@ -8,36 +8,52 @@
     android:background="#FFFFFF"
     tools:context=".RegistrarActivity">
 
-    <TextView
-        android:id="@+id/txtRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="@string/txtRegistrar"
-        android:textColor="#1E88E5"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498" />
 
+    <FrameLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="419dp"
+        android:layout_height="92dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="92dp"
+            android:layout_gravity="center_horizontal|top"
+            app:srcCompat="@drawable/ic_register_unpa_large" />
+
+        <!--<TextView
+            android:id="@+id/txtRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="@string/txtRegistrar"
+            android:textAlignment="center"
+            android:textColor="#1E88E5"
+            android:textSize="32sp"
+            android:textStyle="bold" />-->
+
+    </FrameLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutMatricula"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRegistrar">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtRegistrarMatricula"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_register_email"
+            android:drawableStart="@drawable/ic_register_account_key"
             android:hint="@string/txtHintMatricula"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,7 +72,7 @@
             android:id="@+id/txtRegistrarNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_register_email"
+            android:drawableStart="@drawable/ic_main_account"
             android:hint="@string/txtHintNombre"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +91,7 @@
             android:id="@+id/txtRegistrarApellidoPat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_register_email"
+            android:drawableStart="@drawable/ic_register_account_outline"
             android:hint="@string/txtHintApellidoPat"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:drawableStart="@drawable/ic_register_email"
+            android:drawableStart="@drawable/ic_register_account_outline"
             android:hint="@string/txtHintApellidoMat"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/txtRegistrarApellidoMat"
@@ -152,7 +168,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="38dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="2"
