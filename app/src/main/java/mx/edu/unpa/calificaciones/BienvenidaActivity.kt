@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,13 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import mx.edu.unpa.calificaciones.models.Alumno
+import mx.edu.unpa.calificaciones.models.Usuario
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.AuthProvider
+import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 
-class Bienvenida : AppCompatActivity() {
+class BienvenidaActivity : AppCompatActivity() {
     lateinit var name:TextView
 
     private val authProvider: AuthProvider= AuthProvider()
+    private val usuarioProvider: UsuarioProvider =UsuarioProvider()
     private val alumnoProvider: AlumnoProvider= AlumnoProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,29 +37,46 @@ class Bienvenida : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        getStudent()
+        getUsuario()
 
     }
 
-    private fun getStudent(){
-        alumnoProvider.getStudent().get().addOnCompleteListener{
+    private fun getUsuario(){
+        usuarioProvider.getUsuario().get().addOnCompleteListener{
             if(it.isSuccessful){
-                Toast.makeText(this@Bienvenida,"Consulta exitosa",Toast.LENGTH_LONG).show()
+                Toast.makeText(this@BienvenidaActivity,"Consulta exitosa",Toast.LENGTH_LONG).show()
 
                 val document= it.result.documents
-                val student= document[0].toObject(Alumno::class.java)
+                val usuario= document[0].toObject(Usuario::class.java)
+                Log.d("FIREBASE", "getUsuario [Usuario: ${usuario}]");
 
-
-                Log.d("Firestore", "Estudiante: $student")
-                val intent = Intent(this,HomeActivity::class.java)
-                startActivity(intent)
+                // Consultar datos del estudiante
+                getStudent(usuario);
             }else{
-                Toast.makeText(this@Bienvenida,"Cosulta fallida ${it.exception.toString()}",Toast.LENGTH_LONG).show()
+                Toast.makeText(this@BienvenidaActivity,"Cosulta fallida ${it.exception.toString()}",Toast.LENGTH_LONG).show()
                 Log.d("FIREBASE", "Error: ${it.exception.toString()}");
             }
         }
     }
 
+    private fun getStudent(usuario: Usuario?){
+        alumnoProvider.getStudent(usuario?.usuarioId.toString()).get().addOnCompleteListener{
+            if(it.isSuccessful){
+                // Toast.makeText(this@BienvenidaActivity,"Consulta exitosa",Toast.LENGTH_LONG).show()
+
+                val document= it.result.documents
+                val student= document[0].toObject(Alumno::class.java)
+                Log.d("FIREBASE", "getStudent [Estudiante: ${student}]");
+
+                name.setText(student?.nombre);
+                // val intent = Intent(this,HomeActivity::class.java)
+                // startActivity(intent)
+            }else{
+                // Toast.makeText(this@BienvenidaActivity,"Cosulta fallida ${it.exception.toString()}",Toast.LENGTH_LONG).show()
+                Log.d("FIREBASE", "Error: ${it.exception.toString()}");
+            }
+        }
+    }
 
     /*override fun onStart() {
         super.onStart()
@@ -71,6 +90,7 @@ class Bienvenida : AppCompatActivity() {
             }
         }
     }*/
+
     fun exit(view: View){
         if(authProvider.exitsSession()){
             authProvider.exitSession()

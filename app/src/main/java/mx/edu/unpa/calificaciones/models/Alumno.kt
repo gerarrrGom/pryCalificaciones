@@ -9,7 +9,7 @@ data class Alumno (
     val nombre: String? = null,
     val apellidoPaterno: String? = null,
     val apellidoMaterno: String? = null,
-    val materia: List<Materia>?=null,
+    val materia: List<DocumentReference>?=null,
     val matricula:String?=null,
     val activo: Boolean? = null,
     val topics: List<DocumentReference> = listOf()
