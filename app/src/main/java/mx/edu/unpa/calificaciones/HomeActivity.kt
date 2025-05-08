@@ -151,7 +151,7 @@ class HomeActivity : AppCompatActivity() {
         txtAlumno.text     = alumno.nombre
         txtMatricula.text  = alumno.matricula
         //txtCarrera.text    = carrera.descripcion
-       // txtGrado.text      = materia.semestre
+        //txtGrado.text      = materia.semestre
         txtPromGeneral.text= "8.7"
         //txtCicloEsc.text   = planDeEstudios.descripcion
 
