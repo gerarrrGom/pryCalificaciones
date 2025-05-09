@@ -1,5 +1,6 @@
 package mx.edu.unpa.calificaciones.providers
 
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.auth.oAuthProvider
@@ -107,13 +108,14 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         apellidoMaterno = apellidoMaterno,
                                         matricula = matricula,
                                         activo = activo,
-                                        materia = listOf() // materias
+                                        materia = materias// listOf() // materias
                                     )
                                     callback.onSuccess(alumno)
                                 }
                             }.addOnFailureListener {
                                 if (!errorOcurrido) {
                                     errorOcurrido = true
+                                    Log.d("FIREBASE", "Error:${it.toString()}");
                                     callback.onFailure(it)
                                 }
                             }
@@ -136,7 +138,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                     apellidoMaterno = apellidoMaterno,
                                     matricula = matricula,
                                     activo = activo,
-                                    materia = listOf() // materias
+                                    materia = materias // listOf() // materias
                                 )
                                 callback.onSuccess(alumno)
                             }
@@ -151,7 +153,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                 apellidoMaterno = apellidoMaterno,
                                 matricula = matricula,
                                 activo = activo,
-                                materia = listOf() // materias
+                                materia = materias // listOf() // materias
                             )
                             callback.onSuccess(alumno)
                         }
@@ -159,6 +161,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                 }.addOnFailureListener {
                     if (!errorOcurrido) {
                         errorOcurrido = true
+                        Log.d("FIREBASE", "Error:${it.toString()}");
                         callback.onFailure(it)
                     }
                 }
@@ -168,6 +171,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
             callback.onFailure(Exception("Documento de alumno no encontrado"))
         }
     }.addOnFailureListener {
+        Log.d("FIREBASE", "Error:${it.toString()}");
         callback.onFailure(it)
     }
 }
