@@ -65,13 +65,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var txtOAsig5: TextView
     private lateinit var txtPFAsig5: TextView
 
-    private val usuarioProvider: UsuarioProvider =UsuarioProvider()
+    private lateinit var usuarioProvider: UsuarioProvider
     private lateinit var alumnoProvider: AlumnoProvider
     private lateinit var alumno: Alumno
+
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -154,8 +153,8 @@ class HomeActivity : AppCompatActivity() {
         // Datos generales
         txtAlumno.text     = alumno.nombre
         txtMatricula.text  = alumno.matricula
-        //txtCarrera.text    = carrera.descripcion
-        //txtGrado.text      = materia.semestre
+        txtCarrera.text    = "Ingeniería en Computación"//carrera.descripcion
+        txtGrado.text      ="Octavo"// materia.semestre
         txtPromGeneral.text= "8.7"
         //txtCicloEsc.text   = planDeEstudios.descripcion
 
@@ -173,7 +172,7 @@ class HomeActivity : AppCompatActivity() {
             pf.text = materia?.calificacion?.definitivo ?: ""
         }
 
-// Llenar datos de cada asignatura
+        // Llenar datos de cada asignatura
         cargarAsignatura(0, txtAsignatura1, txtParAsig1, txtPar2Asig1, txtPar3Asig1, txtPPAsig1, txtOAsig1, txtPFAsig1)
         cargarAsignatura(1, txtAsignatura2, txtParAsig2, txtPar2Asig2, txtPar3Asig2, txtPPAsig2, txtOAsig2, txtPFAsig2)
         cargarAsignatura(2, txtAsignatura3, txtParAsig3, txtPar2Asig3, txtPar3Asig3, txtPPAsig3, txtOAsig3, txtPFAsig3)
