@@ -8,58 +8,54 @@
     tools:context=".HomeActivity">
 
     <ImageView
-        android:id="@+id/txtLogo"
-        android:layout_width="71dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/imgLogo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/unpa2"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/unpa2" />
 
     <TextView
         android:id="@+id/txtUni"
-        android:layout_width="333dp"
-        android:layout_height="59dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/txtUni"
         android:textAlignment="center"
         android:textColor="#0D0D0D"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtCampus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/txtLogo"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txtCampus"
-        android:layout_width="222dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="31dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="@string/txtCampus"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        android:textColor="#444"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/txtUni"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtLogo" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txtBoleta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/txtBoleta"
         android:textColor="#0D0D0D"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCampus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCampus"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollBoleta"
@@ -122,179 +118,184 @@
                 android:padding="21dp">-->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/fondo"> <!-- Opcional: fondo decorativo -->
 
-
+                <!-- Fila: Matrícula -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="4dp">
-
+                    android:layout_marginBottom="8dp">
 
                     <TextView
                         android:id="@+id/tmatricula"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="2dp"
-                        android:text="Matricula:"
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Matrícula:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333"/>
 
                     <TextView
                         android:id="@+id/txtMatricula"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="0dp"
-                        android:text=""
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
-
+                        android:layout_weight="2"
+                        android:text="202212345"
+                        android:textSize="16sp"
+                        android:textColor="#000"/>
                 </LinearLayout>
 
+                <!-- Fila: Nombre -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="4dp">
+                    android:layout_marginBottom="8dp">
 
                     <TextView
                         android:id="@+id/talumno"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="Nombre:"
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333"/>
 
                     <TextView
                         android:id="@+id/txtAlumno"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="2dp"
-                        android:text=""
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
+                        android:layout_weight="2"
+                        android:text="Juan Pérez"
+                        android:textSize="16sp"
+                        android:textColor="#000"/>
                 </LinearLayout>
 
+                <!-- Fila: Carrera -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="4dp">
+                    android:layout_marginBottom="8dp">
 
                     <TextView
                         android:id="@+id/tcarrera"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Carrera:"
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
-
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333"/>
 
                     <TextView
                         android:id="@+id/txtCarrera"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="2dp"
-                        android:text=""
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
-
+                        android:layout_weight="2"
+                        android:text="Ing. Sistemas"
+                        android:textSize="16sp"
+                        android:textColor="#000"/>
                 </LinearLayout>
 
+                <!-- Fila: Semestre -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="4dp">
-
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/tsemestre"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Semestre:"
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333"/>
 
                     <TextView
                         android:id="@+id/txtGrado"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="2dp"
-                        android:text=""
-                        android:textSize="17sp"
-                        android:textStyle="bold|italic" />
-
+                        android:layout_weight="2"
+                        android:text="5°"
+                        android:textSize="16sp"
+                        android:textColor="#000"/>
                 </LinearLayout>
 
             </LinearLayout>
 
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="347dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="4dp"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="4dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tPG"
-                    android:layout_width="wrap_content"
+                    android:layout_width="195dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="70dp"
                     android:padding="2dp"
                     android:text="Promedio General:"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textSize="17sp"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtPromGeneral"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="0.0"
                     android:textAlignment="center"
                     android:textSize="17sp"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="4dp">
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:id="@+id/tCE"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:padding="2dp"
-                    android:text="Ciclo Escolar:"
-                    android:textAlignment="center"
-                    android:textSize="17sp"
-                    android:textStyle="bold|italic"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="Ciclo Escolar: "
+                    android:textColor="#333"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtCicloEsc"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:text=""
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textSize="17sp"
-                    android:textStyle="bold|italic"  />
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:minWidth="120dp"
+                    android:text="2024 - 2025 B"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
 
             <TableLayout
                 android:layout_width="match_parent"
