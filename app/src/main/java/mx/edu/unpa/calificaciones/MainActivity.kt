@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.txtTitulo)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layoutMain)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -31,15 +31,21 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(authProvider.exitsSession()){
-            val intent=Intent(this,HomeActivity::class.java)
+<<<<<<< HEAD
+             val intent=Intent(this, HomeActivity::class.java)
+            //val intent=Intent(this, BienvenidaActivity::class.java)
+=======
+            val intent=Intent(this, HomeActivity::class.java)
+            // val intent=Intent(this, BienvenidaActivity::class.java)
+>>>>>>> 1145cba489eb5ce7147872f144e7fbdc5886954e
             startActivity(intent)
-    }
+        }
 
     }
 
     fun login(view: View){
-        email=findViewById(R.id.name)
-        pass=findViewById(R.id.contra)
+        email=findViewById(R.id.txtEmail)
+        pass=findViewById(R.id.txtContraseña)
         Log.d("FIREBASE","Email:$(email.text.toString()}");
         Log.d("FIREBASE","Pass:$(pass.text.toString()}");
 
@@ -47,6 +53,11 @@ class MainActivity : AppCompatActivity() {
             authProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
                 if (it.isSuccessful){
                     val intent= Intent(this, HomeActivity::class.java)
+<<<<<<< HEAD
+                    //val intent=Intent(this, BienvenidaActivity::class.java)
+=======
+                    // val intent=Intent(this, BienvenidaActivity::class.java)
+>>>>>>> 1145cba489eb5ce7147872f144e7fbdc5886954e
                     startActivity(intent)
                 }
                 else{
@@ -69,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun registrar(view: View) {
 
-        val intent = Intent(this, Registrar::class.java)
+        val intent = Intent(this, RegistrarActivity::class.java)
         startActivity(intent);
     }
 

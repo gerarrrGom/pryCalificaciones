@@ -1,5 +1,6 @@
 package mx.edu.unpa.calificaciones.providers
 
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.auth.oAuthProvider
@@ -20,9 +21,10 @@ class AlumnoProvider {
     fun create (alumno: Alumno): Task<Void>{
         return db.document(alumno.alumnoId!!).set(alumno)
     }
-    fun getStudent(): Query {
-        return db.whereEqualTo("matricula",authProvider.getId())
+    fun getStudent(id: String): Query {
+        return db.whereEqualTo("alumnoId", id)
     }
+
     /*var db= Firebase.firestore.collection("Alumno")
 
     fun create(alumno: Alumno): Task<Void> {
@@ -96,6 +98,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         calificacion = calificacion
                                     )
                                 )
+
                                 pendientes--
                                 if (pendientes == 0 && !errorOcurrido) {
                                     val alumno = Alumno(
@@ -105,13 +108,14 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         apellidoMaterno = apellidoMaterno,
                                         matricula = matricula,
                                         activo = activo,
-                                        materia = materias
+                                        materia = materias// listOf() // materias
                                     )
                                     callback.onSuccess(alumno)
                                 }
                             }.addOnFailureListener {
                                 if (!errorOcurrido) {
                                     errorOcurrido = true
+                                    Log.d("FIREBASE", "Error:${it.toString()}");
                                     callback.onFailure(it)
                                 }
                             }
@@ -134,7 +138,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                     apellidoMaterno = apellidoMaterno,
                                     matricula = matricula,
                                     activo = activo,
-                                    materia = materias
+                                    materia = materias // listOf() // materias
                                 )
                                 callback.onSuccess(alumno)
                             }
@@ -149,7 +153,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                 apellidoMaterno = apellidoMaterno,
                                 matricula = matricula,
                                 activo = activo,
-                                materia = materias
+                                materia = materias // listOf() // materias
                             )
                             callback.onSuccess(alumno)
                         }
@@ -157,6 +161,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                 }.addOnFailureListener {
                     if (!errorOcurrido) {
                         errorOcurrido = true
+                        Log.d("FIREBASE", "Error:${it.toString()}");
                         callback.onFailure(it)
                     }
                 }
@@ -166,6 +171,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
             callback.onFailure(Exception("Documento de alumno no encontrado"))
         }
     }.addOnFailureListener {
+        Log.d("FIREBASE", "Error:${it.toString()}");
         callback.onFailure(it)
     }
 }

@@ -14,6 +14,7 @@ import mx.edu.unpa.calificaciones.models.Carrera
 import mx.edu.unpa.calificaciones.models.Materia
 import mx.edu.unpa.calificaciones.models.PlanDeEstudios
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
+import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 
 class HomeActivity : AppCompatActivity() {
     // Declaración de las vistas
@@ -64,8 +65,10 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var txtOAsig5: TextView
     private lateinit var txtPFAsig5: TextView
 
+    private lateinit var usuarioProvider: UsuarioProvider
     private lateinit var alumnoProvider: AlumnoProvider
     private lateinit var alumno: Alumno
+
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -133,7 +136,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Obtener datos del alumno
         //getStudent()
-        alumnoProvider.obtenerAlumnoPorId("9bCGKjq1b6Vhs08oU7jf", object : AlumnoProvider.AlumnoCallback {
+        alumnoProvider.obtenerAlumnoPorId("QgDzdViy7tOCrkF2VKrdnEunp9I2", object : AlumnoProvider.AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
@@ -169,7 +172,7 @@ class HomeActivity : AppCompatActivity() {
             pf.text = materia?.calificacion?.definitivo ?: ""
         }
 
-// Llenar datos de cada asignatura
+        // Llenar datos de cada asignatura
         cargarAsignatura(0, txtAsignatura1, txtParAsig1, txtPar2Asig1, txtPar3Asig1, txtPPAsig1, txtOAsig1, txtPFAsig1)
         cargarAsignatura(1, txtAsignatura2, txtParAsig2, txtPar2Asig2, txtPar3Asig2, txtPPAsig2, txtOAsig2, txtPFAsig2)
         cargarAsignatura(2, txtAsignatura3, txtParAsig3, txtPar2Asig3, txtPar3Asig3, txtPPAsig3, txtOAsig3, txtPFAsig3)
@@ -179,7 +182,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getStudent() {
-        alumnoProvider.getStudent()
+        alumnoProvider.getStudent(usuarioProvider.getId())
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
