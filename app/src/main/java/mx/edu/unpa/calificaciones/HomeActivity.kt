@@ -163,14 +163,14 @@ class HomeActivity : AppCompatActivity() {
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
-            /*val materia = materias.getOrNull(index)
+            val materia = materias.getOrNull(index)
             nombre.text = materia?.nombre ?: ""
             par1.text = materia?.calificacion?.parcial1 ?: ""
             par2.text = materia?.calificacion?.parcial2 ?: ""
             par3.text = materia?.calificacion?.parcial3 ?: ""
             pp.text = materia?.calificacion?.promedio ?: ""
             o.text = materia?.calificacion?.final ?: ""
-            pf.text = materia?.calificacion?.definitivo ?: ""*/
+            pf.text = materia?.calificacion?.definitivo ?: ""
         }
 
 // Llenar datos de cada asignatura
