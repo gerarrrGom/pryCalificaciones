@@ -1,7 +1,8 @@
 <resources>
     <!-- activity_main -->
     <string name="app_name">Calificaciones</string>
-    <string name="txtAppName">StudentApp</string>
+    <string name="txtAppName">Ubo</string> <!-- Ubo (de UNPA + boleta) -->
+    <string name="txtLogin">LOGIN</string> <!-- Ubo (de UNPA + boleta) -->
     <string name="txtHintEmail">Email</string>
     <string name="txtHintContraseña">Contraseña</string>
     <string name="txtTestEmail">test01@gmail.com</string>
