@@ -2,7 +2,7 @@
     <!-- activity_main -->
     <string name="app_name">Calificaciones</string>
     <string name="txtAppName">Ubo</string> <!-- Ubo (de UNPA + boleta) -->
-    <string name="txtLogin">LOGIN</string> <!-- Ubo (de UNPA + boleta) -->
+    <string name="txtLogin">Iniciar sesión</string> <!-- Ubo (de UNPA + boleta) -->
     <string name="txtHintEmail">Email</string>
     <string name="txtHintContraseña">Contraseña</string>
     <string name="txtTestEmail">test01@gmail.com</string>
@@ -12,14 +12,14 @@
     <string name="txtCrear">Crear cuenta</string>
 
     <!-- activity_registrar -->
-    <string name="txtRegistrar">Registrar</string>
+    <string name="txtRegistrar">Registrate</string>
     <string name="txtHintMatricula">Matricula</string>
     <string name="txtHintNombre">Nombre (s)</string>
     <string name="txtHintApellidoPat">Apellido paterno</string>
     <string name="txtHintApellidoMat">Apellido materno</string>
     <!-- <string name="txtHintEmail">Email</string>
     <string name="txtHintContraseña">Contraseña</string> -->
-    <string name="btnCrear">Crear</string>
+    <string name="btnCrear">Continuar</string>
     <string name="btnCancelar">Cancelar</string>
 
     <!-- activity_bienvenida -->

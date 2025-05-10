@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HomeActivity">
-
+    <!--
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="64dp"
@@ -43,36 +44,58 @@
         app:layout_constraintTop_toBottomOf="@id/txtUni"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    -->
+    <FrameLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="419dp"
+        android:layout_height="92dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="92dp"
+            android:layout_gravity="center_horizontal|top"
+            app:srcCompat="@drawable/ic_register_unpa_large" />
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/txtBoleta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="104dp"
         android:text="@string/txtBoleta"
-        android:textColor="#0D0D0D"
-        android:textSize="26sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintTop_toBottomOf="@id/txtCampus"
+        android:textColor="#077b64"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollBoleta"
         android:layout_width="411dp"
-        android:layout_height="566dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBoleta">
+        app:layout_constraintTop_toBottomOf="@+id/txtBoleta"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/contenedor_boleta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fondo"
+            android:background="@drawable/fo_home_background"
             android:elevation="4dp"
             android:orientation="vertical"
             android:padding="16dp">
@@ -120,16 +143,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/fo_home_background"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@drawable/fondo"> <!-- Opcional: fondo decorativo -->
+                android:padding="16dp"> <!-- Opcional: fondo decorativo -->
 
                 <!-- Fila: Matrícula -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/tmatricula"
@@ -137,9 +160,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Matrícula:"
+                        android:textColor="#333"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#333"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtMatricula"
@@ -147,16 +170,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="202212345"
-                        android:textSize="16sp"
-                        android:textColor="#000"/>
+                        android:textColor="#000"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <!-- Fila: Nombre -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/talumno"
@@ -164,9 +187,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Nombre:"
+                        android:textColor="#333"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#333"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtAlumno"
@@ -174,16 +197,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Juan Pérez"
-                        android:textSize="16sp"
-                        android:textColor="#000"/>
+                        android:textColor="#000"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <!-- Fila: Carrera -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/tcarrera"
@@ -191,9 +214,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Carrera:"
+                        android:textColor="#333"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#333"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtCarrera"
@@ -201,8 +224,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Ing. Sistemas"
-                        android:textSize="16sp"
-                        android:textColor="#000"/>
+                        android:textColor="#000"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <!-- Fila: Semestre -->
@@ -217,9 +240,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Semestre:"
+                        android:textColor="#333"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#333"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtGrado"
@@ -227,8 +250,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="5°"
-                        android:textSize="16sp"
-                        android:textColor="#000"/>
+                        android:textColor="#000"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -267,11 +290,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:paddingVertical="8dp">
 
                 <TextView
                     android:id="@+id/tCE"
@@ -309,7 +332,7 @@
                         android:id="@+id/txtAsignaturas"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="Asignaturas"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -319,7 +342,7 @@
                         android:id="@+id/txtParcial1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="1P"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -329,7 +352,7 @@
                         android:id="@+id/txtParcial2"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="2P"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -339,7 +362,7 @@
                         android:id="@+id/txtParcial3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="3P"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -349,7 +372,7 @@
                         android:id="@+id/txtPromedioParcial"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="PP"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -359,7 +382,7 @@
                         android:id="@+id/txtCaliOrdinario"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="O"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -369,7 +392,7 @@
                         android:id="@+id/txtPromFinal"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text="PF"
                         android:textAlignment="center"
                         android:textSize="16sp"
@@ -384,7 +407,7 @@
                         android:id="@+id/txtAsignatura1"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="italic" />
@@ -393,7 +416,7 @@
                         android:id="@+id/txtParAsig1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="normal" />
@@ -402,7 +425,7 @@
                         android:id="@+id/txtPar2Asig1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="normal" />
@@ -411,7 +434,7 @@
                         android:id="@+id/txtPar3Asig1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="normal" />
@@ -420,7 +443,7 @@
                         android:id="@+id/txtPPAsig1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="normal" />
@@ -429,7 +452,7 @@
                         android:id="@+id/txtOAsig1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -437,7 +460,7 @@
                         android:id="@+id/txtPFAsig1"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
                 </TableRow>
@@ -451,7 +474,7 @@
                         android:id="@+id/txtAsignatura2"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="italic" />
@@ -460,7 +483,7 @@
                         android:id="@+id/txtParAsig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -468,7 +491,7 @@
                         android:id="@+id/txtPar2Asig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -476,7 +499,7 @@
                         android:id="@+id/txtPar3Asig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -484,7 +507,7 @@
                         android:id="@+id/txtPPAsig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -492,7 +515,7 @@
                         android:id="@+id/txtOAsig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -500,7 +523,7 @@
                         android:id="@+id/txtPFAsig2"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
                 </TableRow>
@@ -513,7 +536,7 @@
                         android:id="@+id/txtAsignatura3"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="italic" />
@@ -522,7 +545,7 @@
                         android:id="@+id/txtParAsig3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -530,7 +553,7 @@
                         android:id="@+id/txtPar2Asig3"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -538,7 +561,7 @@
                         android:id="@+id/txtPar3Asig3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -546,7 +569,7 @@
                         android:id="@+id/txtPPAsig3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -554,7 +577,7 @@
                         android:id="@+id/txtOAsig3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -562,7 +585,7 @@
                         android:id="@+id/txtPFAsig3"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -576,7 +599,7 @@
                         android:id="@+id/txtAsignatura4"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="italic" />
@@ -585,7 +608,7 @@
                         android:id="@+id/txtParAsig4"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -593,7 +616,7 @@
                         android:id="@+id/txtPar2Asig4"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -601,7 +624,7 @@
                         android:id="@+id/txtPar3Asig4"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -609,7 +632,7 @@
                         android:id="@+id/txtPPAsig4"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -617,7 +640,7 @@
                         android:id="@+id/txtOAsig4"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -625,7 +648,7 @@
                         android:id="@+id/txtPFAsig4"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -639,7 +662,7 @@
                         android:id="@+id/txtAsignatura5"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
                         android:textStyle="italic" />
@@ -648,7 +671,7 @@
                         android:id="@+id/txtParAsig5"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -656,7 +679,7 @@
                         android:id="@+id/txtPar2Asig5"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -664,7 +687,7 @@
                         android:id="@+id/txtPar3Asig5"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -672,7 +695,7 @@
                         android:id="@+id/txtPPAsig5"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -680,7 +703,7 @@
                         android:id="@+id/txtOAsig5"
                         android:layout_width="39dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
@@ -688,7 +711,7 @@
                         android:id="@+id/txtPFAsig5"
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/border"
+                        android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
