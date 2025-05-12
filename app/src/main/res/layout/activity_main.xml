@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/txtLogin"
-        android:textColor="#1E88E5"
+        android:textColor="#077b64"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -131,7 +131,7 @@
             android:onClick="registrar"
             android:paddingHorizontal="16dp"
             android:text="@string/txtCrear"
-            android:textColor="#1E88E5"
+            android:textColor="#077b64"
             android:textSize="16sp"
             android:textStyle="bold" />
     </FrameLayout>

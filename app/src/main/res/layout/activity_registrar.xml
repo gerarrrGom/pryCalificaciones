@@ -26,17 +26,6 @@
             android:layout_gravity="center_horizontal|top"
             app:srcCompat="@drawable/ic_register_unpa_large" />
 
-        <!--<TextView
-            android:id="@+id/txtRegistrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:text="@string/txtRegistrar"
-            android:textAlignment="center"
-            android:textColor="#1E88E5"
-            android:textSize="32sp"
-            android:textStyle="bold" />-->
-
     </FrameLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -204,7 +193,18 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-
+    <TextView
+        android:id="@+id/txtRegistrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/txtRegistrar"
+        android:textAlignment="center"
+        android:textColor="#077b64"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="82dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
