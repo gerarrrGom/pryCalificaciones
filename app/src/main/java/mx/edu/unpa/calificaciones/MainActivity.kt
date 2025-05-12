@@ -31,13 +31,13 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(authProvider.exitsSession()){
-<<<<<<< HEAD
-             val intent=Intent(this, HomeActivity::class.java)
+
+             //val intent=Intent(this, HomeActivity::class.java)
             //val intent=Intent(this, BienvenidaActivity::class.java)
-=======
+
             val intent=Intent(this, HomeActivity::class.java)
             // val intent=Intent(this, BienvenidaActivity::class.java)
->>>>>>> 1145cba489eb5ce7147872f144e7fbdc5886954e
+
             startActivity(intent)
         }
 
@@ -53,11 +53,11 @@ class MainActivity : AppCompatActivity() {
             authProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
                 if (it.isSuccessful){
                     val intent= Intent(this, HomeActivity::class.java)
-<<<<<<< HEAD
+
                     //val intent=Intent(this, BienvenidaActivity::class.java)
-=======
+
                     // val intent=Intent(this, BienvenidaActivity::class.java)
->>>>>>> 1145cba489eb5ce7147872f144e7fbdc5886954e
+
                     startActivity(intent)
                 }
                 else{
