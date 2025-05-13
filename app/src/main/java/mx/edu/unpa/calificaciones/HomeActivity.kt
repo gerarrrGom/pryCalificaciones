@@ -84,10 +84,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Inicializar vistas después de setContentView
-        txtMatricula    = findViewById(R.id.txtMatricula)
+        /*txtMatricula    = findViewById(R.id.txtMatricula)
         txtAlumno       = findViewById(R.id.txtAlumno)
         txtCarrera      = findViewById(R.id.txtCarrera)
-        txtGrado        = findViewById(R.id.txtGrado)
+        txtGrado        = findViewById(R.id.txtGrado)*/
         txtPromGeneral  = findViewById(R.id.txtPromGeneral)
         txtCicloEsc     = findViewById(R.id.txtCicloEsc)
 
@@ -182,7 +182,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getStudent() {
-        alumnoProvider.getStudent(usuarioProvider.getId())
+        alumnoProvider.getStudent("alumnoId", usuarioProvider.getId())
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

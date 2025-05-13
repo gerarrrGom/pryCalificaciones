@@ -11,12 +11,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import mx.edu.unpa.calificaciones.providers.AuthProvider
+import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 
 class MainActivity : AppCompatActivity() {
     lateinit var email: EditText
     lateinit var pass:EditText
 
     private val authProvider: AuthProvider=AuthProvider()
+    private val usuarioProvider: UsuarioProvider=UsuarioProvider()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,24 +34,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(authProvider.exitsSession()){
-<<<<<<< HEAD
-
-             //val intent=Intent(this, HomeActivity::class.java)
-            //val intent=Intent(this, BienvenidaActivity::class.java)
-
-            val intent=Intent(this, HomeActivity::class.java)
-            // val intent=Intent(this, BienvenidaActivity::class.java)
-
-=======
-             val intent=Intent(this, HomeActivity::class.java)
-            //val intent=Intent(this, BienvenidaActivity::class.java)
->>>>>>> 369faf03f56d8419109817ac5dd4187193ecd4d1
+            // val intent=Intent(this, HomeActivity::class.java)
+            val intent=Intent(this, BienvenidaActivity::class.java)
             startActivity(intent)
         }
 
     }
 
-    fun login(view: View){
+    // Login con email y pass
+    /*fun login(view: View){
         email=findViewById(R.id.txtEmail)
         pass=findViewById(R.id.txtContraseña)
         Log.d("FIREBASE","Email:$(email.text.toString()}");
@@ -58,15 +52,28 @@ class MainActivity : AppCompatActivity() {
             authProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
                 if (it.isSuccessful){
                     val intent= Intent(this, HomeActivity::class.java)
-<<<<<<< HEAD
-
                     //val intent=Intent(this, BienvenidaActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this,"Error al iniciar sesión",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }*/
 
-                    // val intent=Intent(this, BienvenidaActivity::class.java)
+    // Login con stId = student ID (Matricula) y pass
+    fun login(view: View){
+        email=findViewById(R.id.txtEmail)
+        pass=findViewById(R.id.txtContraseña)
+        Log.d("FIREBASE","Email:$(email.text.toString()}");
+        Log.d("FIREBASE","Pass:$(pass.text.toString()}");
 
-=======
-                    //val intent=Intent(this, BienvenidaActivity::class.java)
->>>>>>> 369faf03f56d8419109817ac5dd4187193ecd4d1
+        if (isValidForm(email.text.toString(),pass.text.toString())){
+            usuarioProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
+                if (it.isSuccessful){
+                    // val intent= Intent(this, HomeActivity::class.java)
+                    val intent=Intent(this, BienvenidaActivity::class.java)
                     startActivity(intent)
                 }
                 else{
