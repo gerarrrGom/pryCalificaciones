@@ -42,7 +42,7 @@ class BienvenidaActivity : AppCompatActivity() {
     }
 
     private fun getUsuario(){
-        usuarioProvider.getUsuario().get().addOnCompleteListener{
+        usuarioProvider.getUsuario("usuarioId", authProvider.getId()).get().addOnCompleteListener{
             if(it.isSuccessful){
                 Toast.makeText(this@BienvenidaActivity,"Consulta exitosa",Toast.LENGTH_LONG).show()
 
@@ -60,7 +60,7 @@ class BienvenidaActivity : AppCompatActivity() {
     }
 
     private fun getStudent(usuario: Usuario?){
-        alumnoProvider.getStudent(usuario?.usuarioId.toString()).get().addOnCompleteListener{
+        alumnoProvider.getStudent("alumnoId", usuario?.usuarioId.toString()).get().addOnCompleteListener{
             if(it.isSuccessful){
                 // Toast.makeText(this@BienvenidaActivity,"Consulta exitosa",Toast.LENGTH_LONG).show()
 

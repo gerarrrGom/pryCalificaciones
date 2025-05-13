@@ -84,10 +84,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Inicializar vistas después de setContentView
-        txtMatricula    = findViewById(R.id.txtMatricula)
+        /*txtMatricula    = findViewById(R.id.txtMatricula)
         txtAlumno       = findViewById(R.id.txtAlumno)
         txtCarrera      = findViewById(R.id.txtCarrera)
-        txtGrado        = findViewById(R.id.txtGrado)
+        txtGrado        = findViewById(R.id.txtGrado)*/
         txtPromGeneral  = findViewById(R.id.txtPromGeneral)
         txtCicloEsc     = findViewById(R.id.txtCicloEsc)
 
@@ -162,14 +162,14 @@ class HomeActivity : AppCompatActivity() {
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
-            val materia = materias.getOrNull(index)
+            /*val materia = materias.getOrNull(index)
             nombre.text = materia?.nombre ?: ""
             par1.text = materia?.calificacion?.parcial1 ?: ""
             par2.text = materia?.calificacion?.parcial2 ?: ""
             par3.text = materia?.calificacion?.parcial3 ?: ""
             pp.text = materia?.calificacion?.promedio ?: ""
             o.text = materia?.calificacion?.final ?: ""
-            pf.text = materia?.calificacion?.definitivo ?: ""
+            pf.text = materia?.calificacion?.definitivo ?: ""*/
         }
 
         // Llenar datos de cada asignatura
@@ -182,7 +182,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getStudent() {
-        alumnoProvider.getStudent(usuarioProvider.getId())
+        alumnoProvider.getStudent("alumnoId", usuarioProvider.getId())
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

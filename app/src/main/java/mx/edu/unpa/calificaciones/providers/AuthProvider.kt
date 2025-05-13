@@ -5,7 +5,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 class AuthProvider {
-    val auth: FirebaseAuth= FirebaseAuth.getInstance()
+    val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun register(email: String, pass: String): Task<AuthResult> {
         return auth.createUserWithEmailAndPassword(email,pass)
@@ -15,7 +15,7 @@ class AuthProvider {
         return auth.currentUser?.uid?:""
     }
 
-    fun login(email: String,pass:String):Task<AuthResult>{
+    fun login(email: String, pass: String):Task<AuthResult>{
         return auth.signInWithEmailAndPassword(email,pass)
     }
 
