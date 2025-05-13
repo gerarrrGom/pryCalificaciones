@@ -17,13 +17,8 @@ import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 
 class HomeActivity : AppCompatActivity() {
-    // Declaración de las vistas
-    private lateinit var txtMatricula: TextView
-    private lateinit var txtAlumno: TextView
-    private lateinit var txtCarrera: TextView
-    private lateinit var txtGrado: TextView
-    private lateinit var txtPromGeneral: TextView
-    private lateinit var txtCicloEsc: TextView
+
+    
 
     private lateinit var txtAsignatura1: TextView
     private lateinit var txtParAsig1: TextView
@@ -84,12 +79,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Inicializar vistas después de setContentView
-        txtMatricula    = findViewById(R.id.txtMatricula)
-        txtAlumno       = findViewById(R.id.txtAlumno)
-        txtCarrera      = findViewById(R.id.txtCarrera)
-        txtGrado        = findViewById(R.id.txtGrado)
-        txtPromGeneral  = findViewById(R.id.txtPromGeneral)
-        txtCicloEsc     = findViewById(R.id.txtCicloEsc)
+
 
         txtAsignatura1 = findViewById(R.id.txtAsignatura1)
         txtParAsig1    = findViewById(R.id.txtParAsig1)
@@ -151,12 +141,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun llenarDatos() {
         // Datos generales
-        txtAlumno.text     = alumno.nombre
-        txtMatricula.text  = alumno.matricula
-        txtCarrera.text    = "Ingeniería en Computación"//carrera.descripcion
-        txtGrado.text      ="Octavo"// materia.semestre
-        txtPromGeneral.text= "8.7"
-        //txtCicloEsc.text   = planDeEstudios.descripcion
 
         val materias = alumno.materia ?: emptyList()
 
