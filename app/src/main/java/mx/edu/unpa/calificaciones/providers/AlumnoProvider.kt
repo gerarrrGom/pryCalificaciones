@@ -121,7 +121,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                         apellidoMaterno = apellidoMaterno,
                                         matricula = matricula,
                                         activo = activo,
-                                        materia = materias// listOf() // materias
+                                        materia = listOf() // materias
                                     )
                                     callback.onSuccess(alumno)
                                 }
@@ -151,7 +151,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                     apellidoMaterno = apellidoMaterno,
                                     matricula = matricula,
                                     activo = activo,
-                                    materia = materias // listOf() // materias
+                                    materia = listOf() // materias
                                 )
                                 callback.onSuccess(alumno)
                             }
@@ -166,7 +166,7 @@ fun obtenerAlumnoPorId(alumnoId: String, callback: AlumnoCallback) {
                                 apellidoMaterno = apellidoMaterno,
                                 matricula = matricula,
                                 activo = activo,
-                                materia = materias // listOf() // materias
+                                materia = listOf() // materias
                             )
                             callback.onSuccess(alumno)
                         }
