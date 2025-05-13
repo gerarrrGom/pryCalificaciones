@@ -64,32 +64,16 @@
     </FrameLayout>
 
 
-    <TextView
-        android:id="@+id/txtBoleta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:text="@string/txtBoleta"
-        android:textColor="#077b64"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollBoleta"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBoleta"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:id="@+id/contenedor_boleta"
@@ -114,14 +98,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Periodo:"
+                    android:text="Ciclo Escolar:"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/txtSemestre"
-                    android:layout_width="200dp"
-                    android:layout_height="27dp"
+                    android:layout_width="250dp"
+                    android:layout_height="28dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner"
@@ -172,7 +156,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
@@ -182,22 +166,22 @@
 
                 <TextView
                     android:id="@+id/tCE"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:text="Ciclo Escolar: "
+                    android:text="Semestre:"
                     android:textColor="#333"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtCicloEsc"
-                    android:layout_width="216dp"
+                    android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:gravity="start"
                     android:minWidth="120dp"
-                    android:text="2024 - 2025 B"
+                    android:text="8"
                     android:textColor="#000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
