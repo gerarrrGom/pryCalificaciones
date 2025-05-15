@@ -15,6 +15,7 @@ import mx.edu.unpa.calificaciones.models.Materia
 import mx.edu.unpa.calificaciones.models.PlanDeEstudios
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
+import java.time.LocalDate
 
 class HomeActivity : AppCompatActivity() {
 
@@ -183,5 +184,31 @@ class HomeActivity : AppCompatActivity() {
                     Log.e("Firestore", "Error al obtener estudiante", task.exception)
                 }
             }
+    }
+
+    private fun getCicloEscolar(): List<String> {
+        val ciclos = mutableListOf<String>()
+        if(alumno != null)
+        {
+            val añoIngreso = alumno.matricula?.substring(0, 2)!!.toIntOrNull();
+
+            if (añoIngreso != null) {
+                val añoInicio = if (añoIngreso > LocalDate.now().year % 100)
+                    1900 + añoIngreso
+                else
+                    2000 + añoIngreso
+
+                val añoActual = LocalDate.now().year
+
+                for (año in añoInicio until añoActual) {
+                    val siguienteAño = año + 1
+                    listOf("A", "B", "V").forEach { periodo ->
+                        ciclos.add("$año - $siguienteAño $periodo")
+                    }
+                }
+            }
+        }
+
+        return ciclos.reversed()
     }
 }
