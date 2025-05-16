@@ -15,13 +15,14 @@ import mx.edu.unpa.calificaciones.models.Calificacion
 import mx.edu.unpa.calificaciones.models.Carrera
 import mx.edu.unpa.calificaciones.models.Materia
 import mx.edu.unpa.calificaciones.models.PlanDeEstudios
+import mx.edu.unpa.calificaciones.providers.AlumnoCallback
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 import java.time.LocalDate
 
 class HomeActivity : AppCompatActivity() {
 
-    
+
 
     private lateinit var txtAsignatura1: TextView
     private lateinit var txtParAsig1: TextView
@@ -132,19 +133,20 @@ class HomeActivity : AppCompatActivity() {
         // Inicializar provider
         alumnoProvider = AlumnoProvider()
 
-        // Obtener datos del alumno
-        //getStudent()
-        alumnoProvider.obtenerAlumnoPorId("QgDzdViy7tOCrkF2VKrdnEunp9I2", object : AlumnoProvider.AlumnoCallback {
+
+        alumnoProvider.obtenerAlumnoPorId("tPGboZ0C43MCkM3t2DUJ", object : AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
-                llenarDatos();
-                Spinner();
+                llenarDatos()
+                Spinner()
             }
+
             override fun onFailure(exception: Exception) {
                 println("Error al obtener alumno: ${exception.message}")
             }
         })
+
     }
 
 
@@ -156,13 +158,15 @@ class HomeActivity : AppCompatActivity() {
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
             val materia = materias.getOrNull(index)
-            nombre.text = materia?.nombre ?: ""
-            par1.text = materia?.calificacion?.parcial1 ?: ""
-            par2.text = materia?.calificacion?.parcial2 ?: ""
-            par3.text = materia?.calificacion?.parcial3 ?: ""
-            pp.text = materia?.calificacion?.promedio ?: ""
-            o.text = materia?.calificacion?.final ?: ""
-            pf.text = materia?.calificacion?.definitivo ?: ""
+            //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+            //if(materia?.cicloEscolar == cicloSeleccionado)
+                    nombre.text = materia?.nombre ?: ""
+                    par1.text = materia?.calificacion?.parcial1 ?: ""
+                    par2.text = materia?.calificacion?.parcial2 ?: ""
+                    par3.text = materia?.calificacion?.parcial3 ?: ""
+                    pp.text = materia?.calificacion?.promedio ?: ""
+                    o.text = materia?.calificacion?.final ?: ""
+                    pf.text = materia?.calificacion?.definitivo ?: ""
         }
 
         // Llenar datos de cada asignatura
@@ -202,7 +206,7 @@ class HomeActivity : AppCompatActivity() {
 
         spinnerCiclos.adapter = adapter
 
-        //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+
     }
 
     private fun getCicloEscolar(): List<String> {
