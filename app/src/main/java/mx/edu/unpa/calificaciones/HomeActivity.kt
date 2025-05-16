@@ -2,6 +2,8 @@ package mx.edu.unpa.calificaciones
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +17,7 @@ import mx.edu.unpa.calificaciones.models.Materia
 import mx.edu.unpa.calificaciones.models.PlanDeEstudios
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
+import java.time.LocalDate
 
 class HomeActivity : AppCompatActivity() {
 
@@ -62,10 +65,14 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var usuarioProvider: UsuarioProvider
     private lateinit var alumnoProvider: AlumnoProvider
-    private lateinit var alumno: Alumno
+    // private lateinit var alumno: Alumno
+    private var alumno: Alumno? = null
 
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
+
+    private lateinit var spinnerCiclos: Spinner
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -132,6 +139,7 @@ class HomeActivity : AppCompatActivity() {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
                 llenarDatos();
+                Spinner();
             }
             override fun onFailure(exception: Exception) {
                 println("Error al obtener alumno: ${exception.message}")
@@ -143,7 +151,7 @@ class HomeActivity : AppCompatActivity() {
     private fun llenarDatos() {
         // Datos generales
 
-        val materias = alumno.materia ?: emptyList()
+        val materias = alumno!!.materia ?: emptyList()
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
@@ -183,5 +191,63 @@ class HomeActivity : AppCompatActivity() {
                     Log.e("Firestore", "Error al obtener estudiante", task.exception)
                 }
             }
+    }
+
+    private fun Spinner(){
+        spinnerCiclos = findViewById(R.id.spinnerCiclos);
+
+        val ciclos = getCicloEscolar() // Tu método para obtener los ciclos
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ciclos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerCiclos.adapter = adapter
+
+        //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+    }
+
+    private fun getCicloEscolar(): List<String> {
+        val ciclos = mutableListOf<String>()
+        val hoy = LocalDate.now()
+
+        if(alumno != null)
+        {
+            val añoIngreso = alumno!!.matricula?.substring(0, 2)!!.toIntOrNull();
+
+            if (añoIngreso != null) {
+                val añoInicio = if (añoIngreso > LocalDate.now().year % 100)
+                    1900 + añoIngreso
+                else
+                    2000 + añoIngreso
+
+                val añoActual = hoy.year // LocalDate.now().year
+
+                for (año in añoInicio..añoActual) {
+                    val siguienteAño = año + 1
+
+                    // Periodo A: 1 oct año – 28 feb siguiente año
+                    val periodoAInicio = LocalDate.of(año, 10, 1)
+                    val periodoAFin = LocalDate.of(siguienteAño, 2, 28)
+                    if (hoy >= periodoAInicio) {
+                        ciclos.add("$año - $siguienteAño A")
+                    }
+
+                    // Periodo B: 1 mar siguiente año – 30 jun siguiente año
+                    val periodoBInicio = LocalDate.of(siguienteAño, 3, 1)
+                    val periodoBFin = LocalDate.of(siguienteAño, 6, 30)
+                    if (hoy >= periodoBInicio) {
+                        ciclos.add("$año - $siguienteAño B")
+                    }
+
+                    // Periodo V: 1 mar siguiente año – 30 sep siguiente año
+                    val periodoVInicio = LocalDate.of(siguienteAño, 3, 1)
+                    val periodoVFin = LocalDate.of(siguienteAño, 9, 30)
+                    if (hoy >= periodoVInicio) {
+                        ciclos.add("$año - $siguienteAño V")
+                    }
+                }
+            }
+        }
+
+        return ciclos.reversed()
     }
 }
