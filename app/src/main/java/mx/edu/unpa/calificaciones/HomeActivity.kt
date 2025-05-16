@@ -2,6 +2,8 @@ package mx.edu.unpa.calificaciones
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -67,6 +69,9 @@ class HomeActivity : AppCompatActivity() {
 
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
+
+    private lateinit var spinnerCiclos: Spinner
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -138,6 +143,16 @@ class HomeActivity : AppCompatActivity() {
                 println("Error al obtener alumno: ${exception.message}")
             }
         })
+
+        spinnerCiclos = findViewById(R.id.spinnerCiclos)
+
+        val ciclos = getCicloEscolar() // Tu método para obtener los ciclos
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ciclos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerCiclos.adapter = adapter
+
+        val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
     }
 
 
@@ -188,6 +203,8 @@ class HomeActivity : AppCompatActivity() {
 
     private fun getCicloEscolar(): List<String> {
         val ciclos = mutableListOf<String>()
+        val hoy = LocalDate.now()
+
         if(alumno != null)
         {
             val añoIngreso = alumno.matricula?.substring(0, 2)!!.toIntOrNull();
@@ -198,12 +215,30 @@ class HomeActivity : AppCompatActivity() {
                 else
                     2000 + añoIngreso
 
-                val añoActual = LocalDate.now().year
+                val añoActual = hoy.year // LocalDate.now().year
 
-                for (año in añoInicio until añoActual) {
+                for (año in añoInicio..añoActual) {
                     val siguienteAño = año + 1
-                    listOf("A", "B", "V").forEach { periodo ->
-                        ciclos.add("$año - $siguienteAño $periodo")
+
+                    // Periodo A: 1 oct año – 28 feb siguiente año
+                    val periodoAInicio = LocalDate.of(año, 10, 1)
+                    val periodoAFin = LocalDate.of(siguienteAño, 2, 28)
+                    if (hoy >= periodoAInicio) {
+                        ciclos.add("$año - $siguienteAño A")
+                    }
+
+                    // Periodo B: 1 mar siguiente año – 30 jun siguiente año
+                    val periodoBInicio = LocalDate.of(siguienteAño, 3, 1)
+                    val periodoBFin = LocalDate.of(siguienteAño, 6, 30)
+                    if (hoy >= periodoBInicio) {
+                        ciclos.add("$año - $siguienteAño B")
+                    }
+
+                    // Periodo V: 1 mar siguiente año – 30 sep siguiente año
+                    val periodoVInicio = LocalDate.of(siguienteAño, 3, 1)
+                    val periodoVFin = LocalDate.of(siguienteAño, 9, 30)
+                    if (hoy >= periodoVInicio) {
+                        ciclos.add("$año - $siguienteAño V")
                     }
                 }
             }
