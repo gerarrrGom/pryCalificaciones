@@ -66,14 +66,24 @@
 
     <ScrollView
         android:id="@+id/scrollBoleta"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
+
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0">
+
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
 
         <LinearLayout
             android:id="@+id/contenedor_boleta"
@@ -84,9 +94,17 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- <LinearLayout
+                android:id="@+id/layoutDatosAlumno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="21dp">-->
+
+
             <LinearLayout
-                android:layout_width="190dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
                 android:layout_gravity="end|top"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
@@ -98,14 +116,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+
+                    
+
                     android:text="Ciclo Escolar:"
+
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <Spinner
+
+                    android:id="@+id/spinnerCiclos"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+
                     android:id="@+id/txtSemestre"
                     android:layout_width="250dp"
                     android:layout_height="28dp"
+
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner"
@@ -116,6 +144,7 @@
 
 
             </LinearLayout>
+
 
             <!-- <LinearLayout
                 android:id="@+id/layoutDatosAlumno"
@@ -188,9 +217,10 @@
             </LinearLayout>
 
 
+
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="440dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -587,7 +617,36 @@
             </TableLayout>
 
 
-            <!--</LinearLayout>-->
+            <LinearLayout
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tPG"
+                    android:layout_width="195dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:padding="2dp"
+                    android:text="Promedio General:"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPromGeneral"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
 
