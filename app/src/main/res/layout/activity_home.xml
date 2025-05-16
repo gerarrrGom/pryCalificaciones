@@ -64,32 +64,18 @@
     </FrameLayout>
 
 
-    <TextView
-        android:id="@+id/txtBoleta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:text="@string/txtBoleta"
-        android:textColor="#077b64"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollBoleta"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBoleta"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/contenedor_boleta"
@@ -100,9 +86,17 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- <LinearLayout
+                android:id="@+id/layoutDatosAlumno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="21dp">-->
+
+
             <LinearLayout
-                android:layout_width="190dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
                 android:layout_gravity="end|top"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
@@ -114,14 +108,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Periodo:"
+                    android:text="Ciclo Escolar: "
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinnerCiclos"
-                    android:layout_width="200dp"
-                    android:layout_height="27dp"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner"
@@ -133,80 +127,10 @@
 
             </LinearLayout>
 
-            <!-- <LinearLayout
-                android:id="@+id/layoutDatosAlumno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="21dp">-->
-
-
-            <LinearLayout
-                android:layout_width="347dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tPG"
-                    android:layout_width="195dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:padding="2dp"
-                    android:text="Promedio General:"
-                    android:textAlignment="textEnd"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtPromGeneral"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:text="0.0"
-                    android:textAlignment="center"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp">
-
-                <TextView
-                    android:id="@+id/tCE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="Ciclo Escolar: "
-                    android:textColor="#333"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtCicloEsc"
-                    android:layout_width="216dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:minWidth="120dp"
-                    android:text="2024 - 2025 B"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="440dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -603,7 +527,36 @@
             </TableLayout>
 
 
-            <!--</LinearLayout>-->
+            <LinearLayout
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tPG"
+                    android:layout_width="195dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:padding="2dp"
+                    android:text="Promedio General:"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPromGeneral"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
 

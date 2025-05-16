@@ -65,7 +65,8 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var usuarioProvider: UsuarioProvider
     private lateinit var alumnoProvider: AlumnoProvider
-    private lateinit var alumno: Alumno
+    // private lateinit var alumno: Alumno
+    private var alumno: Alumno? = null
 
     //private lateinit var calificacion: Calificacion
     //private lateinit var carrera: Carrera
@@ -138,28 +139,19 @@ class HomeActivity : AppCompatActivity() {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
                 llenarDatos();
+                Spinner();
             }
             override fun onFailure(exception: Exception) {
                 println("Error al obtener alumno: ${exception.message}")
             }
         })
-
-        spinnerCiclos = findViewById(R.id.spinnerCiclos)
-
-        val ciclos = getCicloEscolar() // Tu método para obtener los ciclos
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ciclos)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        spinnerCiclos.adapter = adapter
-
-        val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
     }
 
 
     private fun llenarDatos() {
         // Datos generales
 
-        val materias = alumno.materia ?: emptyList()
+        val materias = alumno!!.materia ?: emptyList()
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
@@ -201,13 +193,25 @@ class HomeActivity : AppCompatActivity() {
             }
     }
 
+    private fun Spinner(){
+        spinnerCiclos = findViewById(R.id.spinnerCiclos);
+
+        val ciclos = getCicloEscolar() // Tu método para obtener los ciclos
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ciclos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerCiclos.adapter = adapter
+
+        //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+    }
+
     private fun getCicloEscolar(): List<String> {
         val ciclos = mutableListOf<String>()
         val hoy = LocalDate.now()
 
         if(alumno != null)
         {
-            val añoIngreso = alumno.matricula?.substring(0, 2)!!.toIntOrNull();
+            val añoIngreso = alumno!!.matricula?.substring(0, 2)!!.toIntOrNull();
 
             if (añoIngreso != null) {
                 val añoInicio = if (añoIngreso > LocalDate.now().year % 100)
