@@ -78,19 +78,6 @@ class BienvenidaActivity : AppCompatActivity() {
         }
     }
 
-    /*override fun onStart() {
-        super.onStart()
-        alumnoProvider.getAlumnoById("AC1Vs93aUTbA1hWDep220jrrxao1"){
-            alumno: Alumno? ->
-            if (alumno!=null){
-                Toast.makeText(this,"Lo lograste bro @alumno",Toast.LENGTH_LONG).show()
-                Toast.makeText(this,alumno.name,Toast.LENGTH_LONG).show()
-            }else{
-                Toast.makeText(this,"no hubo alumno, bro",Toast.LENGTH_LONG).show()
-            }
-        }
-    }*/
-
     fun exit(view: View){
         if(authProvider.exitsSession()){
             authProvider.exitSession()
