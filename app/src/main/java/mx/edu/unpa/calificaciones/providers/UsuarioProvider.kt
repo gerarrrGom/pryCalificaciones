@@ -21,11 +21,7 @@ class UsuarioProvider {
         return db.document(usuario.usuarioId!!).set(usuario)
     }
 
-    /*
-    fun getUsuario(): Query{
-        return db.whereEqualTo("usuarioId", authProvider.getId())
-    }
-    */
+
 
     fun getUsuario(field: String, value: String): Query {
         return db.whereEqualTo(field, value)
