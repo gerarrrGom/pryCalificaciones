@@ -46,29 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // Login con email y pass
-    /*fun login(view: View){
-        email=findViewById(R.id.txtEmail)
-        pass=findViewById(R.id.txtContraseña)
-        Log.d("FIREBASE","Email:$(email.text.toString()}");
-        Log.d("FIREBASE","Pass:$(pass.text.toString()}");
-
-        if (isValidForm(email.text.toString(),pass.text.toString())){
-            authProvider.login(email.text.toString(),pass.text.toString()).addOnCompleteListener{
-                if (it.isSuccessful){
-                    val intent= Intent(this, HomeActivity::class.java)
-<<<<<<< HEAD
-
-=======
-                    //val intent=Intent(this, BienvenidaActivity::class.java)
-                    startActivity(intent)
-                }
-                else{
-                    Toast.makeText(this,"Error al iniciar sesión",Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-    }*/
 
     // Login con stId = student ID (Matricula) y pass
     fun login(view: View){
