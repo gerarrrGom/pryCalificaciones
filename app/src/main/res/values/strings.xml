@@ -3,7 +3,7 @@
     <string name="app_name">Calificaciones</string>
     <string name="txtAppName">Ubo</string> <!-- Ubo (de UNPA + boleta) -->
     <string name="txtLogin">Iniciar sesión</string> <!-- Ubo (de UNPA + boleta) -->
-    <string name="txtHintEmail">Email</string>
+    <string name="txtHintEmail">Matrícula</string>
     <string name="txtHintContraseña">Contraseña</string>
     <!-- <string name="txtTestEmail">test01@gmail.com</string> -->
     <string name="txtTestEmail">21010019</string>
