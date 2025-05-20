@@ -132,10 +132,10 @@ class HomeActivity : AppCompatActivity() {
 
         // Inicializar provider
         alumnoProvider = AlumnoProvider()
+        usuarioProvider = UsuarioProvider()
 
 
-        alumnoProvider.obtenerAlumnoPorId("tPGboZ0C43MCkM3t2DUJ" +
-                "", object : AlumnoCallback {
+        alumnoProvider.obtenerAlumnoPorId(usuarioProvider.getId(), object : AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
