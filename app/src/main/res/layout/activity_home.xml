@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#D8EFEA"
     tools:context=".HomeActivity">
     <!--
     <ImageView
@@ -129,8 +129,8 @@
 
 
             <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="440dp">
+                android:layout_width="342dp"
+                android:layout_height="267dp">
 
                 <TableRow
                     android:layout_width="match_parent"
