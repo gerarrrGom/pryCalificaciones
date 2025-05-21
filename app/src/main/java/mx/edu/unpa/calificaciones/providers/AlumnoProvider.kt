@@ -55,7 +55,7 @@ class AlumnoProvider {
                     }
 
                     val materiaProvider = MateriaProvider()
-                    materiaProvider.obtenerMaterias("2024 - 2025 B", materiasRefList) { materias, error ->
+                    materiaProvider.obtenerMaterias(materiasRefList) { materias, error ->
                         if (error != null) {
                             callback.onFailure(error)
                             return@obtenerMaterias

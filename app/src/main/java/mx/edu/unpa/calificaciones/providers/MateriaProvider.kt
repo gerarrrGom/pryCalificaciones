@@ -21,7 +21,6 @@ class MateriaProvider {
     }
 
         fun obtenerMaterias(
-            _ciclo: String,
             referencias: List<DocumentReference>,
             callback: (List<Materia>?, Exception?) -> Unit
         ) {
@@ -35,42 +34,26 @@ class MateriaProvider {
                         val nombre = snapshot.getString("nombre")
                         val ciclo = snapshot.getString("cicloEscolar")
 
-                        if (ciclo.equals(_ciclo)) {
-                            val semestre = snapshot.getString("semestre")
-                            val activo = snapshot.getBoolean("activo")
-                            val califRef = snapshot.getDocumentReference("calificacion")
+                        val semestre = snapshot.getString("semestre")
+                        val activo = snapshot.getBoolean("activo")
+                        val califRef = snapshot.getDocumentReference("calificacion")
 
-                            if (califRef != null) {
-                                val calificacionProvider = CalificacionProvider()
-                                calificacionProvider.obtenerCalificacion(califRef) { calificacion, error ->
-                                    if (error != null && !errorOcurrido) {
-                                        errorOcurrido = true
-                                        callback(null, error)
-                                        return@obtenerCalificacion
-                                    }
-
-                                    materias.add(
-                                        Materia(
-                                            nombre = nombre,
-                                            cicloEscolar = ciclo,
-                                            semestre = semestre,
-                                            activo = activo,
-                                            calificacion = calificacion
-                                        )
-                                    )
-                                    pendientes--
-                                    if (pendientes == 0 && !errorOcurrido) {
-                                        callback(materias, null)
-                                    }
+                        if (califRef != null) {
+                            val calificacionProvider = CalificacionProvider()
+                            calificacionProvider.obtenerCalificacion(califRef) { calificacion, error ->
+                                if (error != null && !errorOcurrido) {
+                                    errorOcurrido = true
+                                    callback(null, error)
+                                    return@obtenerCalificacion
                                 }
-                            } else {
+
                                 materias.add(
                                     Materia(
                                         nombre = nombre,
                                         cicloEscolar = ciclo,
                                         semestre = semestre,
                                         activo = activo,
-                                        calificacion = null
+                                        calificacion = calificacion
                                     )
                                 )
                                 pendientes--
@@ -78,7 +61,22 @@ class MateriaProvider {
                                     callback(materias, null)
                                 }
                             }
+                        } else {
+                            materias.add(
+                                Materia(
+                                    nombre = nombre,
+                                    cicloEscolar = ciclo,
+                                    semestre = semestre,
+                                    activo = activo,
+                                    calificacion = null
+                                )
+                            )
+                            pendientes--
+                            if (pendientes == 0 && !errorOcurrido) {
+                                callback(materias, null)
+                            }
                         }
+
                     } else {
                         pendientes--
                         if (pendientes == 0 && !errorOcurrido) {

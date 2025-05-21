@@ -104,7 +104,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtNPeriodo"
+                    android:id="@+id/txtCicloEscolar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
@@ -137,11 +137,11 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txtAsignaturas"
+                        android:id="@+id/txtAsignatura"
                         android:layout_width="116dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
-                        android:text="Asignaturas"
+                        android:text="Asignatura"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         android:textStyle="bold|italic" />

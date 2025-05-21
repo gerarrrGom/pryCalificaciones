@@ -152,20 +152,25 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
+
     private fun llenarDatos() {
         // Datos generales
 
-        val materias = alumno!!.materia ?: emptyList()
+        // val materias = alumno!!.materia ?: emptyList()
+        var cicloSeleccionado = getCicloEscolar().first()
+        if (spinnerCiclos.selectedItem!=null){
+            cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+        }
+        val materias = alumno!!.materia ?.filter { it.cicloEscolar?.trim() == cicloSeleccionado.trim() } ?: emptyList()
+
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
             val materia = materias.getOrNull(index)
-            var cicloSeleccionado = getCicloEscolar().first()
-            if (spinnerCiclos.selectedItem!=null){
-                cicloSeleccionado = spinnerCiclos.selectedItem.toString()
-            }
+
             Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
-            if(materia?.cicloEscolar == cicloSeleccionado)
+            Log.d("CICLO", "materia: '${materia?.cicloEscolar}', seleccionado: '$cicloSeleccionado'")
+            if(materia != null){
                     nombre.text = materia?.nombre ?: ""
                     par1.text = materia?.calificacion?.parcial1 ?: ""
                     par2.text = materia?.calificacion?.parcial2 ?: ""
@@ -173,6 +178,16 @@ class HomeActivity : AppCompatActivity() {
                     pp.text = materia?.calificacion?.promedio ?: ""
                     o.text = materia?.calificacion?.final ?: ""
                     pf.text = materia?.calificacion?.definitivo ?: ""
+            }
+            else{
+                nombre.text = ""
+                par1.text = ""
+                par2.text = ""
+                par3.text = ""
+                pp.text = ""
+                o.text = ""
+                pf.text = ""
+            }
         }
 
         // Llenar datos de cada asignatura
@@ -260,6 +275,7 @@ class HomeActivity : AppCompatActivity() {
 
         return ciclos.reversed()
     }
+
     fun activarEventList() {
         spinnerCiclos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
