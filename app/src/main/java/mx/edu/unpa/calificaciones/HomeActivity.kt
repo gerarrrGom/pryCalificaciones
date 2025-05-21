@@ -2,6 +2,8 @@ package mx.edu.unpa.calificaciones
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
@@ -88,7 +90,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Inicializar vistas después de setContentView
 
-
+        spinnerCiclos = findViewById<Spinner>(R.id.spinnerCiclos)
 
         txtAsignatura1 = findViewById(R.id.txtAsignatura1)
         txtParAsig1    = findViewById(R.id.txtParAsig1)
@@ -134,7 +136,6 @@ class HomeActivity : AppCompatActivity() {
         alumnoProvider = AlumnoProvider()
         usuarioProvider = UsuarioProvider()
 
-
         alumnoProvider.obtenerAlumnoPorId(usuarioProvider.getId(), object : AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
@@ -147,7 +148,7 @@ class HomeActivity : AppCompatActivity() {
                 println("Error al obtener alumno: ${exception.message}")
             }
         })
-
+        activarEventList()
     }
 
 
@@ -159,8 +160,12 @@ class HomeActivity : AppCompatActivity() {
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
             val materia = materias.getOrNull(index)
-            //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
-            //if(materia?.cicloEscolar == cicloSeleccionado)
+            var cicloSeleccionado = getCicloEscolar().first()
+            if (spinnerCiclos.selectedItem!=null){
+                cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+            }
+            Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
+            if(materia?.cicloEscolar == cicloSeleccionado)
                     nombre.text = materia?.nombre ?: ""
                     par1.text = materia?.calificacion?.parcial1 ?: ""
                     par2.text = materia?.calificacion?.parcial2 ?: ""
@@ -254,5 +259,21 @@ class HomeActivity : AppCompatActivity() {
         }
 
         return ciclos.reversed()
+    }
+    fun activarEventList() {
+        spinnerCiclos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                llenarDatos()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Puedes dejarlo vacío o hacer algo si se desea
+            }
+        }
     }
 }
