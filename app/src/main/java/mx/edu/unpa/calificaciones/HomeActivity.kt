@@ -1,7 +1,9 @@
 package mx.edu.unpa.calificaciones
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -21,6 +23,8 @@ import mx.edu.unpa.calificaciones.providers.AlumnoCallback
 import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 import java.time.LocalDate
+import android.view.Menu
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -81,6 +85,26 @@ class HomeActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
 
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.action_notifies -> {
+                    Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.action_casa -> {
+                    Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.action_perf -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
         // Ajuste de insets para Edge-to-Edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -136,6 +160,7 @@ class HomeActivity : AppCompatActivity() {
         alumnoProvider = AlumnoProvider()
         usuarioProvider = UsuarioProvider()
 
+
         alumnoProvider.obtenerAlumnoPorId(usuarioProvider.getId(), object : AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
@@ -150,7 +175,6 @@ class HomeActivity : AppCompatActivity() {
         })
         activarEventList()
     }
-
 
 
     private fun llenarDatos() {
@@ -228,6 +252,10 @@ class HomeActivity : AppCompatActivity() {
         spinnerCiclos.adapter = adapter
 
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_bottom_nav, menu)
+        return true
     }
 
     private fun getCicloEscolar(): List<String> {
