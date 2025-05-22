@@ -68,7 +68,7 @@ class AlumnoProvider {
                             apellidoMaterno = apellidoMaterno,
                             matricula = matricula,
                             activo = activo,
-                            materia = materias ?: emptyList()
+                            materia = materias
                         )
                         callback.onSuccess(alumno)
                     }

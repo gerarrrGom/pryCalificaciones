@@ -2,6 +2,8 @@ package mx.edu.unpa.calificaciones
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
@@ -88,7 +90,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Inicializar vistas después de setContentView
 
-
+        spinnerCiclos = findViewById<Spinner>(R.id.spinnerCiclos)
 
         txtAsignatura1 = findViewById(R.id.txtAsignatura1)
         txtParAsig1    = findViewById(R.id.txtParAsig1)
@@ -132,10 +134,9 @@ class HomeActivity : AppCompatActivity() {
 
         // Inicializar provider
         alumnoProvider = AlumnoProvider()
+        usuarioProvider = UsuarioProvider()
 
-
-        alumnoProvider.obtenerAlumnoPorId("tPGboZ0C43MCkM3t2DUJ" +
-                "", object : AlumnoCallback {
+        alumnoProvider.obtenerAlumnoPorId(usuarioProvider.getId(), object : AlumnoCallback {
             override fun onSuccess(alumno: Alumno) {
                 println("Alumno obtenido: ${alumno.toJson()}")
                 this@HomeActivity.alumno = alumno
@@ -147,20 +148,29 @@ class HomeActivity : AppCompatActivity() {
                 println("Error al obtener alumno: ${exception.message}")
             }
         })
-
+        activarEventList()
     }
+
 
 
     private fun llenarDatos() {
         // Datos generales
 
-        val materias = alumno!!.materia ?: emptyList()
+        // val materias = alumno!!.materia ?: emptyList()
+        var cicloSeleccionado = getCicloEscolar().first()
+        if (spinnerCiclos.selectedItem!=null){
+            cicloSeleccionado = spinnerCiclos.selectedItem.toString()
+        }
+        val materias = alumno!!.materia ?.filter { it.cicloEscolar?.trim() == cicloSeleccionado.trim() } ?: emptyList()
+
 
         // Función auxiliar para llenar una fila
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
             val materia = materias.getOrNull(index)
-            //val cicloSeleccionado = spinnerCiclos.selectedItem.toString()
-            //if(materia?.cicloEscolar == cicloSeleccionado)
+
+            Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
+            Log.d("CICLO", "materia: '${materia?.cicloEscolar}', seleccionado: '$cicloSeleccionado'")
+            if(materia != null){
                     nombre.text = materia?.nombre ?: ""
                     par1.text = materia?.calificacion?.parcial1 ?: ""
                     par2.text = materia?.calificacion?.parcial2 ?: ""
@@ -168,6 +178,16 @@ class HomeActivity : AppCompatActivity() {
                     pp.text = materia?.calificacion?.promedio ?: ""
                     o.text = materia?.calificacion?.final ?: ""
                     pf.text = materia?.calificacion?.definitivo ?: ""
+            }
+            else{
+                nombre.text = ""
+                par1.text = ""
+                par2.text = ""
+                par3.text = ""
+                pp.text = ""
+                o.text = ""
+                pf.text = ""
+            }
         }
 
         // Llenar datos de cada asignatura
@@ -254,5 +274,22 @@ class HomeActivity : AppCompatActivity() {
         }
 
         return ciclos.reversed()
+    }
+
+    fun activarEventList() {
+        spinnerCiclos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                llenarDatos()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Puedes dejarlo vacío o hacer algo si se desea
+            }
+        }
     }
 }

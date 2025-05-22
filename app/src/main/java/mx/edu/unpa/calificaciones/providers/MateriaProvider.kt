@@ -33,6 +33,7 @@ class MateriaProvider {
                     if (snapshot != null && snapshot.exists()) {
                         val nombre = snapshot.getString("nombre")
                         val ciclo = snapshot.getString("cicloEscolar")
+
                         val semestre = snapshot.getString("semestre")
                         val activo = snapshot.getBoolean("activo")
                         val califRef = snapshot.getDocumentReference("calificacion")
@@ -75,6 +76,7 @@ class MateriaProvider {
                                 callback(materias, null)
                             }
                         }
+
                     } else {
                         pendientes--
                         if (pendientes == 0 && !errorOcurrido) {

@@ -34,10 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(authProvider.exitsSession()){
-
-
-
-             val intent=Intent(this, HomeActivity::class.java)
+              val intent=Intent(this, HomeActivity::class.java)
             //val intent=Intent(this, BienvenidaActivity::class.java)
 
 
