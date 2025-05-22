@@ -192,7 +192,7 @@ class HomeActivity : AppCompatActivity() {
         fun cargarAsignatura(index: Int, nombre: TextView, par1: TextView, par2: TextView, par3: TextView, pp: TextView, o: TextView, pf: TextView) {
             val materia = materias.getOrNull(index)
 
-            Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
             Log.d("CICLO", "materia: '${materia?.cicloEscolar}', seleccionado: '$cicloSeleccionado'")
             if(materia != null){
                     nombre.text = materia?.nombre ?: ""
