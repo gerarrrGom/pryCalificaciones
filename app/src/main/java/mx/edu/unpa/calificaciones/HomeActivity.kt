@@ -194,16 +194,24 @@ class HomeActivity : AppCompatActivity() {
 
             //Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
             Log.d("CICLO", "materia: '${materia?.cicloEscolar}', seleccionado: '$cicloSeleccionado'")
-            if(materia != null){
-                    nombre.text = materia?.nombre ?: ""
-                    par1.text = materia?.calificacion?.parcial1 ?: ""
-                    par2.text = materia?.calificacion?.parcial2 ?: ""
-                    par3.text = materia?.calificacion?.parcial3 ?: ""
-                    pp.text = materia?.calificacion?.promedio ?: ""
-                    o.text = materia?.calificacion?.final ?: ""
-                    pf.text = materia?.calificacion?.definitivo ?: ""
-            }
-            else{
+            if(materia != null) {
+                nombre.text = materia?.nombre ?: ""
+                par1.text = materia?.calificacion?.parcial1 ?: ""
+                par2.text = materia?.calificacion?.parcial2 ?: ""
+                par3.text = materia?.calificacion?.parcial3 ?: ""
+                pp.text = materia?.calificacion?.promedio ?: ""
+                o.text = materia?.calificacion?.final ?: ""
+                pf.text = materia?.calificacion?.definitivo ?: ""
+
+                // Verificamos si la calificación definitiva es menor a 5.9 para cambiar el color
+                val calificacionFinal = materia.calificacion?.definitivo?.toIntOrNull()
+                if (calificacionFinal != null && calificacionFinal < 5.9) {
+                    nombre.setTextColor(resources.getColor(android.R.color.holo_red_dark)) // color rojo
+                } else {
+                    nombre.setTextColor(resources.getColor(android.R.color.black)) // color normal
+
+                }
+            }else{
                 nombre.text = ""
                 par1.text = ""
                 par2.text = ""
@@ -211,6 +219,7 @@ class HomeActivity : AppCompatActivity() {
                 pp.text = ""
                 o.text = ""
                 pf.text = ""
+                nombre.setTextColor(resources.getColor(android.R.color.black)) // reiniciar color si está vacío
             }
         }
 
