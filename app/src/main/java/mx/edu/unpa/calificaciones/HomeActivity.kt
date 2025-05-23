@@ -24,6 +24,7 @@ import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 import java.time.LocalDate
 import android.view.Menu
+import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -205,10 +206,22 @@ class HomeActivity : AppCompatActivity() {
 
                 // Verificamos si la calificación definitiva es menor a 5.9 para cambiar el color
                 val calificacionFinal = materia.calificacion?.definitivo?.toIntOrNull()
-                if (calificacionFinal != null && calificacionFinal < 5.9) {
-                    nombre.setTextColor(resources.getColor(android.R.color.holo_red_dark)) // color rojo
+                if (calificacionFinal != null && calificacionFinal < 6) {
+                    nombre.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado)) // color rojo
+                    /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    par2.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    par3.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    pp.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    o.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    pf.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))*/
                 } else {
-                    nombre.setTextColor(resources.getColor(android.R.color.black)) // color normal
+                    nombre.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black)) // color normal
+                    /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))     // color normal para PF
+                    par2.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    par3.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    pp.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    o.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    pf.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))*/
 
                 }
             }else{
@@ -219,7 +232,13 @@ class HomeActivity : AppCompatActivity() {
                 pp.text = ""
                 o.text = ""
                 pf.text = ""
-                nombre.setTextColor(resources.getColor(android.R.color.black)) // reiniciar color si está vacío
+                nombre.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black)) // color normal
+                /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))     // color normal para PF
+                par2.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                par3.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                pp.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                o.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                pf.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))// reiniciar color si está vacío*/
             }
         }
 
