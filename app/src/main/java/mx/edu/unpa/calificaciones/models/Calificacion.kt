@@ -17,9 +17,20 @@ data class Calificacion(
 ){
     public fun toJson()= klaxon.toJsonString(this)
 
-    companion object{
-        public fun fromJson(json:String)= klaxon.parse<Calificacion>(json)
+    companion object {
+        fun fromJson(json: String) = klaxon.parse<Calificacion>(json)
+        fun calcularPromedioReal(calificacion: Calificacion): Double? {
+            val notas = listOfNotNull(
+                calificacion.parcial1?.toDoubleOrNull(),
+                calificacion.parcial2?.toDoubleOrNull(),
+                calificacion.parcial3?.toDoubleOrNull()
+            )
+
+            return if (notas.isNotEmpty()) notas.average() else null
+        }
+
     }
+
 
 
 }
