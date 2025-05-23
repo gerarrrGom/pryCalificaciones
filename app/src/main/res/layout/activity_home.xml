@@ -574,18 +574,10 @@
 
             </LinearLayout>
             <!-- El menú inferior (footer) -->
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?android:attr/windowBackground"
-                android:visibility="visible"
-                app:backgroundTint="#FDFBFB"
-                app:itemIconTint="@color/black"
-                app:itemTextColor="@color/black"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/menu_bottom_nav" />
-        ;</LinearLayout>
+            <include
+                layout="@layout/activity_menu" />
+
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

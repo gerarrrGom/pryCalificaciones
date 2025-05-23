@@ -88,24 +88,12 @@ class HomeActivity : AppCompatActivity() {
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.action_notifies -> {
-                    Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.action_casa -> {
-                    Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.action_perf -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
+        // Configura el footer usando el helper
+        FooterHelper.setupBottomNavigation(this, bottomNav)
+
+        // Marca el item seleccionado correspondiente a esta pantalla
+        bottomNav.selectedItemId = R.id.action_casa
+
         // Ajuste de insets para Edge-to-Edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
