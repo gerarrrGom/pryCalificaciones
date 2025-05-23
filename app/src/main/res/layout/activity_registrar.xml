@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
-            android:layout_height="92dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|top"
             app:srcCompat="@drawable/ic_register_unpa_large" />
 
@@ -198,13 +198,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="92dp"
         android:text="@string/txtRegistrar"
         android:textAlignment="center"
         android:textColor="#077b64"
         android:textSize="22sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
