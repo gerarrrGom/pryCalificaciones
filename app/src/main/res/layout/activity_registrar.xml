@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:drawableStart="@drawable/ic_register_email"
-            android:hint="@string/txtHintEmail"
+            android:hint="@string/txtHintEmail2"
             android:inputType="textPersonName"
             app:layout_constraintTop_toBottomOf="@+id/txtRegistrarEmail"
             tools:layout_editor_absoluteX="-51dp" />
