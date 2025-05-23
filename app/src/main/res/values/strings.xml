@@ -37,5 +37,9 @@
     <string name="txtPeriodo">Periodo</string>
     <string name="txtSemestre">Semestre</string>
 
+    <!--activity_profile-->
+
+    <string name="btnCerrarSesion">Cerrar sesión</string>
+
 
 </resources>

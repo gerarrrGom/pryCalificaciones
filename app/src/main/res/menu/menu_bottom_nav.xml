@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_notifies"
+        android:icon="@drawable/ic_notificacion"
+        android:title="Notificaciones" />
+    <item
+        android:id="@+id/action_casa"
+        android:icon="@drawable/ic_casa"
+        android:title="Home" />
+    <item
+        android:id="@+id/action_perf"
+        android:icon="@drawable/ic_main_account"
+        android:title="Perfil"
+        />
+</menu>

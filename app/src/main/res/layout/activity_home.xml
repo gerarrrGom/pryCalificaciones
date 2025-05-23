@@ -7,50 +7,14 @@
     android:layout_height="match_parent"
     android:background="#D8EFEA"
     tools:context=".HomeActivity">
-    <!--
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="@string/app_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/unpa2" />
 
-    <TextView
-        android:id="@+id/txtUni"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/txtUni"
-        android:textAlignment="center"
-        android:textColor="#0D0D0D"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/imgLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtCampus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/txtCampus"
-        android:textAlignment="center"
-        android:textColor="#444"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/txtUni"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    -->
     <FrameLayout
         android:id="@+id/linearLayout"
         android:layout_width="419dp"
         android:layout_height="92dp"
         android:layout_gravity="center"
         android:orientation="vertical"
+        android:alpha="0.9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -63,13 +27,13 @@
             app:srcCompat="@drawable/ic_register_unpa_large" />
     </FrameLayout>
 
-
     <ScrollView
         android:id="@+id/scrollBoleta"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:padding="16dp"
+        android:alpha="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,7 +44,7 @@
         <LinearLayout
             android:id="@+id/contenedor_boleta"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/fo_home_background"
             android:elevation="4dp"
             android:orientation="vertical"
@@ -115,7 +79,7 @@
                 <Spinner
                     android:id="@+id/spinnerCiclos"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner"
@@ -129,8 +93,8 @@
 
 
             <TableLayout
-                android:layout_width="342dp"
-                android:layout_height="267dp">
+                android:layout_width="352dp"
+                android:layout_height="320dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -148,7 +112,7 @@
 
                     <TextView
                         android:id="@+id/txtParcial1"
-                        android:layout_width="38dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="1P"
@@ -158,7 +122,7 @@
 
                     <TextView
                         android:id="@+id/txtParcial2"
-                        android:layout_width="40dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="2P"
@@ -168,7 +132,7 @@
 
                     <TextView
                         android:id="@+id/txtParcial3"
-                        android:layout_width="38dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="3P"
@@ -178,7 +142,7 @@
 
                     <TextView
                         android:id="@+id/txtPromedioParcial"
-                        android:layout_width="38dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="PP"
@@ -188,7 +152,7 @@
 
                     <TextView
                         android:id="@+id/txtCaliOrdinario"
-                        android:layout_width="38dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="O"
@@ -198,7 +162,7 @@
 
                     <TextView
                         android:id="@+id/txtPromFinal"
-                        android:layout_width="38dp"
+                        android:layout_width="37dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="PF"
@@ -214,7 +178,7 @@
                     <TextView
                         android:id="@+id/txtAsignatura1"
                         android:layout_width="116dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -222,8 +186,8 @@
 
                     <TextView
                         android:id="@+id/txtParAsig1"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -231,8 +195,8 @@
 
                     <TextView
                         android:id="@+id/txtPar2Asig1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -240,8 +204,8 @@
 
                     <TextView
                         android:id="@+id/txtPar3Asig1"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -249,8 +213,8 @@
 
                     <TextView
                         android:id="@+id/txtPPAsig1"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -258,16 +222,16 @@
 
                     <TextView
                         android:id="@+id/txtOAsig1"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPFAsig1"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
@@ -281,7 +245,7 @@
                     <TextView
                         android:id="@+id/txtAsignatura2"
                         android:layout_width="116dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -289,48 +253,48 @@
 
                     <TextView
                         android:id="@+id/txtParAsig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar2Asig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar3Asig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPPAsig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtOAsig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPFAsig2"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
@@ -343,7 +307,7 @@
                     <TextView
                         android:id="@+id/txtAsignatura3"
                         android:layout_width="116dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -351,48 +315,48 @@
 
                     <TextView
                         android:id="@+id/txtParAsig3"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar2Asig3"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar3Asig3"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPPAsig3"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtOAsig3"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPFAsig3"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
@@ -406,7 +370,7 @@
                     <TextView
                         android:id="@+id/txtAsignatura4"
                         android:layout_width="116dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -414,48 +378,48 @@
 
                     <TextView
                         android:id="@+id/txtParAsig4"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar2Asig4"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar3Asig4"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPPAsig4"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtOAsig4"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPFAsig4"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
@@ -469,7 +433,7 @@
                     <TextView
                         android:id="@+id/txtAsignatura5"
                         android:layout_width="116dp"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center"
@@ -477,48 +441,48 @@
 
                     <TextView
                         android:id="@+id/txtParAsig5"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar2Asig5"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPar3Asig5"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPPAsig5"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtOAsig5"
-                        android:layout_width="39dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtPFAsig5"
-                        android:layout_width="38dp"
-                        android:layout_height="40dp"
+                        android:layout_width="37dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
                         android:textAlignment="center" />
@@ -555,12 +519,27 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                   />
+
 
             </LinearLayout>
+            <!-- El menú inferior (footer) -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/windowBackground"
+                app:menu="@menu/menu_bottom_nav"
+                app:labelVisibilityMode="labeled"
+                app:itemIconTint="@color/black"
+                app:itemTextColor="@color/black"/>
         </LinearLayout>
-
-
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
