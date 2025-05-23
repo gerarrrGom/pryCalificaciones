@@ -48,7 +48,7 @@
             android:background="@drawable/fo_home_background"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="5dp">
 
             <!-- <LinearLayout
                 android:id="@+id/layoutDatosAlumno"
@@ -74,7 +74,8 @@
                     android:layout_weight="0"
                     android:text="Ciclo Escolar: "
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
 
                 <Spinner
                     android:id="@+id/spinnerCiclos"
@@ -93,8 +94,8 @@
 
 
             <TableLayout
-                android:layout_width="352dp"
-                android:layout_height="320dp">
+                android:layout_width="340dp"
+                android:layout_height="345dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -106,9 +107,10 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="Asignatura"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParcial1"
@@ -116,9 +118,10 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="1P"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParcial2"
@@ -126,9 +129,10 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="2P"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParcial3"
@@ -136,9 +140,10 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="3P"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPromedioParcial"
@@ -146,17 +151,19 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="PP"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtCaliOrdinario"
-                        android:layout_width="37dp"
+                        android:layout_width="38dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
+                        android:gravity="center"
                         android:text="O"
-                        android:textAlignment="center"
+                        android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold|italic" />
 
@@ -166,9 +173,10 @@
                         android:layout_height="40dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text="PF"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textSize="16sp"
-                        android:textStyle="bold|italic" />
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"/>
                 </TableRow>
 
                 <TableRow
@@ -178,63 +186,70 @@
                     <TextView
                         android:id="@+id/txtAsignatura1"
                         android:layout_width="116dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="italic" />
+                        android:gravity="center"
+                        android:textStyle="italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParAsig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="normal" />
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar2Asig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="normal" />
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar3Asig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="normal" />
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPPAsig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="normal" />
+                        android:gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtOAsig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPFAsig1"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
                 </TableRow>
 
                 <TableRow
@@ -245,59 +260,66 @@
                     <TextView
                         android:id="@+id/txtAsignatura2"
                         android:layout_width="116dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="italic" />
+                        android:gravity="center"
+                        android:textStyle="italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParAsig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar2Asig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar3Asig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPPAsig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtOAsig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPFAsig2"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
                 </TableRow>
 
                 <TableRow
@@ -307,59 +329,66 @@
                     <TextView
                         android:id="@+id/txtAsignatura3"
                         android:layout_width="116dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="italic" />
+                        android:gravity="center"
+                        android:textStyle="italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParAsig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar2Asig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar3Asig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPPAsig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtOAsig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPFAsig3"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                 </TableRow>
 
@@ -370,59 +399,66 @@
                     <TextView
                         android:id="@+id/txtAsignatura4"
                         android:layout_width="116dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="italic" />
+                        android:gravity="center"
+                        android:textStyle="italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParAsig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar2Asig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar3Asig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPPAsig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtOAsig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPFAsig4"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                 </TableRow>
 
@@ -433,67 +469,74 @@
                     <TextView
                         android:id="@+id/txtAsignatura5"
                         android:layout_width="116dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center"
-                        android:textStyle="italic" />
+                        android:gravity="center"
+                        android:textStyle="italic"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtParAsig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar2Asig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPar3Asig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPPAsig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtOAsig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                     <TextView
                         android:id="@+id/txtPFAsig5"
                         android:layout_width="37dp"
-                        android:layout_height="50dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/bg_home_border_selector"
                         android:text=""
-                        android:textAlignment="center" />
+                        android:gravity="center"
+                        android:textColor="#000000"/>
 
                 </TableRow>
             </TableLayout>
 
 
             <LinearLayout
-                android:layout_width="347dp"
-                android:layout_height="wrap_content"
+                android:layout_width="345dp"
+                android:layout_height="65dp"
                 android:layout_marginBottom="4dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
@@ -508,7 +551,8 @@
                     android:text="Promedio General:"
                     android:textAlignment="textEnd"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
 
                 <TextView
                     android:id="@+id/txtPromGeneral"
@@ -517,15 +561,15 @@
                     android:text="0.0"
                     android:textAlignment="center"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="?attr/colorPrimary"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                   />
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
             </LinearLayout>
@@ -535,11 +579,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?android:attr/windowBackground"
-                app:menu="@menu/menu_bottom_nav"
-                app:labelVisibilityMode="labeled"
                 app:itemIconTint="@color/black"
-                app:itemTextColor="@color/black"/>
-        </LinearLayout>
+                app:itemTextColor="@color/black"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/menu_bottom_nav" />
+        ;</LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
