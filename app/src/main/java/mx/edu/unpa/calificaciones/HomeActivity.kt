@@ -24,6 +24,7 @@ import mx.edu.unpa.calificaciones.providers.AlumnoProvider
 import mx.edu.unpa.calificaciones.providers.UsuarioProvider
 import java.time.LocalDate
 import android.view.Menu
+import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -87,24 +88,12 @@ class HomeActivity : AppCompatActivity() {
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.action_notifies -> {
-                    Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.action_casa -> {
-                    Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.action_perf -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
+        // Configura el footer usando el helper
+        FooterHelper.setupBottomNavigation(this, bottomNav)
+
+        // Marca el item seleccionado correspondiente a esta pantalla
+        bottomNav.selectedItemId = R.id.action_casa
+
         // Ajuste de insets para Edge-to-Edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -194,16 +183,36 @@ class HomeActivity : AppCompatActivity() {
 
             //Toast.makeText(this,"filtrando por ciclo : $cicloSeleccionado", Toast.LENGTH_LONG).show()
             Log.d("CICLO", "materia: '${materia?.cicloEscolar}', seleccionado: '$cicloSeleccionado'")
-            if(materia != null){
-                    nombre.text = materia?.nombre ?: ""
-                    par1.text = materia?.calificacion?.parcial1 ?: ""
-                    par2.text = materia?.calificacion?.parcial2 ?: ""
-                    par3.text = materia?.calificacion?.parcial3 ?: ""
-                    pp.text = materia?.calificacion?.promedio ?: ""
-                    o.text = materia?.calificacion?.final ?: ""
-                    pf.text = materia?.calificacion?.definitivo ?: ""
-            }
-            else{
+            if(materia != null) {
+                nombre.text = materia?.nombre ?: ""
+                par1.text = materia?.calificacion?.parcial1 ?: ""
+                par2.text = materia?.calificacion?.parcial2 ?: ""
+                par3.text = materia?.calificacion?.parcial3 ?: ""
+                pp.text = materia?.calificacion?.promedio ?: ""
+                o.text = materia?.calificacion?.final ?: ""
+                pf.text = materia?.calificacion?.definitivo ?: ""
+
+                // Verificamos si la calificación definitiva es menor a 5.9 para cambiar el color
+                val calificacionFinal = materia.calificacion?.definitivo?.toIntOrNull()
+                if (calificacionFinal != null && calificacionFinal < 6) {
+                    nombre.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado)) // color rojo
+                    /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    par2.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    par3.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    pp.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    o.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))
+                    pf.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.reprobado))*/
+                } else {
+                    nombre.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black)) // color normal
+                    /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))     // color normal para PF
+                    par2.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    par3.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    pp.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    o.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                    pf.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))*/
+
+                }
+            }else{
                 nombre.text = ""
                 par1.text = ""
                 par2.text = ""
@@ -211,6 +220,13 @@ class HomeActivity : AppCompatActivity() {
                 pp.text = ""
                 o.text = ""
                 pf.text = ""
+                nombre.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black)) // color normal
+                /*par1.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))     // color normal para PF
+                par2.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                par3.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                pp.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                o.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))
+                pf.setTextColor(ContextCompat.getColor(this@HomeActivity,R.color.black))// reiniciar color si está vacío*/
             }
         }
 

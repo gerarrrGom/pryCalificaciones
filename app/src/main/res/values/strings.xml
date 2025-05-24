@@ -18,8 +18,8 @@
     <string name="txtHintNombre">Nombre (s)</string>
     <string name="txtHintApellidoPat">Apellido paterno</string>
     <string name="txtHintApellidoMat">Apellido materno</string>
-    <!-- <string name="txtHintEmail">Email</string>
-    <string name="txtHintContraseña">Contraseña</string> -->
+    <string name="txtHintEmail2">Email</string>
+    <!--<string name="txtHintContraseña">Contraseña</string> -->
     <string name="btnCrear">Continuar</string>
     <string name="btnCancelar">Cancelar</string>
 
